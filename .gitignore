@@ -25,3 +25,6 @@ dist/
 
 # Optional: coverage reports
 coverage/
+
+# Frontend build
+/frontend/dist/
