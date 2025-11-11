@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  // liste de tous les projets
   const projects = [
     {
       title: "Todo List Application",
@@ -48,18 +49,22 @@ async function main() {
     }
   ];
 
+  // parcours des projets et insertion dans la DB
   for (const project of projects) {
-    await prisma.project.create({ data: project });
-  }
+    // verifie si le projet existe déjà
+    const exists = await prisma.project.findFirst({
+      where: { title: project.title, link: project.link }
+    });
 
-  console.log("Seed completed ✅");
+    if (!exists) {
+      await prisma.project.create({ data: project });
+    }
+  }
 }
 
+// exécution
 main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
+  .catch(() => process.exit(1))
   .finally(async () => {
     await prisma.$disconnect();
   });

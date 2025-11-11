@@ -1,3 +1,5 @@
+// backend/prisma/schema.prisma
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,4 +16,7 @@ model Project {
   imageUrl    String?
   link        String?
   createdAt   DateTime @default(now())
+
+  // Empêche la création de doublons pour le même projet
+  @@unique([title, link])
 }
