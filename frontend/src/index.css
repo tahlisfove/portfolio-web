@@ -1,0 +1,15 @@
+/* reset et styles de base */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+}
+
+/* style global pour les boutons */
+button {
+  font-family: inherit;
+}

@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import "./App.css";
+import { useLanguage } from "./context/LanguageContext";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  // état pour gérer la page active
+  const [page, setPage] = useState<"home" | "projects" | "contact">("home");
+  // état pour gérer l'animation de transition entre pages
+  const [transitioning, setTransitioning] = useState(false);
+  const { language } = useLanguage();
 
+  // effet pour déclencher la transition à chaque changement de page ou de langue
+  useEffect(() => {
+    setTransitioning(true);
+    const timer = setTimeout(() => setTransitioning(false), 200);
+    return () => clearTimeout(timer);
+  }, [page, language]);
+
+  // structure principale
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app-wrapper">
+      {/* header avec navigation */}
+      <Header setPage={setPage} />
 
-export default App
+      {/* contenu principal */}
+      <main className="main-content">
+        <div className={`page-transition ${transitioning ? "fade" : ""}`}>
+          {page === "home" && <Home />}
+          {page === "projects" && <Projects />}
+          {page === "contact" && <Contact />}
+        </div>
+      </main>
+
+      {/* footer */}
+      <Footer setPage={setPage} />
+    </div>
+  );
+};
+
+export default App;
