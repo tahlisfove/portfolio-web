@@ -5,6 +5,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Environment variables
 .env
@@ -17,7 +18,7 @@ dist/
 
 # Prisma
 /prisma/migrations/
-prisma/.env  # si tu as un .env spécifique Prisma
+prisma/.env
 
 # Mac OS
 .DS_Store
@@ -28,8 +29,9 @@ prisma/.env  # si tu as un .env spécifique Prisma
 
 # Frontend build
 /frontend/dist/
-frontend/.vite/  # cache de Vite
+frontend/.vite/
 
-# Next.js
+# Next.js / Vite / Build
 .next/
 out/
+build/
