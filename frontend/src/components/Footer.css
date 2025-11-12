@@ -4,68 +4,72 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* section logos */
+/* section des logos */
 .footer-logos {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 25px;
-  padding: 20px 0;
-  background-color: rgba(200, 200, 200, 0.9);
+  padding: 18px 0;
 }
 
-/* liens et bouton email dans la section logos */
+/* liens et bouton email */
 .footer-logos a,
 .footer-logos .email-button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
+  transition: transform 0.2s ease, filter 0.3s ease;
 }
 
-/* images des logos */
+/* style des images des logos */
 .footer-logos img {
-  width: 40px;
-  height: 40px;
-  transition: transform 0.2s;
+  width: 36px;
+  height: 36px;
+  filter: brightness(0.85) invert(0.9);
+  transition: transform 0.2s ease, filter 0.3s ease;
 }
 
-/* survol des logos */
+/* effet au survol des logos */
 .footer-logos img:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  filter: brightness(1) drop-shadow(0 0 6px rgba(100, 149, 237, 0.6));
 }
 
-/* copyright et informations */
+/* texte du footer */
 .footer-text {
   width: 100%;
-  padding: 15px 0;
-  background-color: rgba(240, 240, 240, 0.9);
   text-align: center;
+  padding: 10px 0 14px;
 }
 
 .footer-text p {
   margin: 0;
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 12px;
+  color: rgba(200, 200, 200, 0.7);
+  letter-spacing: 0.3px;
+  user-select: none;
+  font-weight: 300;
 }
 
-/* responsive : ajustements pour écrans <= 560px */
+/* responsive */
 @media (max-width: 560px) {
   .footer-logos {
-    gap: 15px;
-    padding: 15px 0;
+    gap: 18px;
+    padding: 14px 0;
   }
 
   .footer-logos img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
-  .footer-text {
-    padding: 12px 0;
-    font-size: 0.8rem;
+  .footer-text p {
+    font-size: 11px;
   }
 }
