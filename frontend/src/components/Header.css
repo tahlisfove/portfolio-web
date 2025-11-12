@@ -1,19 +1,19 @@
-/* header principal flottant */
+/* header principal fixe */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   height: 70px;
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(10, 10, 15, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 100;
   transition: all 0.3s ease;
 }
 
-/* container interne pour aligner nav et éléments */
+/* conteneur du header */
 .header-container {
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto;
   height: 100%;
   display: flex;
@@ -22,7 +22,29 @@
   position: relative;
 }
 
-/* barre de navigation principale */
+/* logo gauche */
+.header-logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.header-logo img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header-logo img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 6px rgba(100, 149, 237, 0.6));
+}
+
+/* navigation */
 .nav {
   display: flex;
   align-items: center;
@@ -31,33 +53,26 @@
   transition: transform 0.3s ease;
 }
 
-/* style commun aux liens et au sélecteur langue */
-.nav-link,
-.lang-switch {
-  transition: color 0.25s ease, transform 0.15s ease, background 0.25s ease;
-}
-
-/* liens nav */
+/* style des liens de navigation */
 .nav-link {
   position: relative;
   background: none;
   border: none;
-  font-size: 1rem;
-  color: #333;
+  font-size: 16px;
+  color: rgba(240, 240, 240, 0.8);
   cursor: pointer;
   padding: 5px 0;
+  transition: color 0.25s ease, transform 0.15s ease;
 }
 
 .nav-link:hover {
-  color: #0077ff;
+  color: #5caaff;
 }
 
-.nav-link:active,
-.lang-switch:active {
+.nav-link:active {
   transform: scale(0.95);
 }
 
-/* effet souligné animé sur hover */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -65,60 +80,44 @@
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background: #0077ff;
+  background: #5caaff;
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
 /* lien actif */
 .nav-link.active {
-  color: #0077ff;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-link.active::after {
-  width: 100%;
-  transition: width 0.3s ease-in-out;
-}
-
-/* style spécifique lien home */
-.home-link {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #111;
-}
-
-.home-link:hover {
-  color: #005adf;
+  color: #5caaff;
 }
 
 /* sélecteur de langue */
 .lang-switch {
-  position: fixed;
+  position: absolute;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 500;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  color: rgba(230, 230, 230, 0.85);
   transition: all 0.3s ease;
 }
 
 .lang-switch:hover {
-  background: #0077ff;
-  color: white;
-  box-shadow: 0 0 6px rgba(0, 119, 255, 0.5);
+  background: #5caaff;
+  color: #fff;
+  box-shadow: 0 0 8px rgba(92, 170, 255, 0.4);
 }
 
-/* menu pour mobile */
+/* menu mobile */
 .menu-toggle {
   display: none;
   position: absolute;
@@ -132,33 +131,31 @@
 }
 
 .menu-toggle span {
-  background: #333;
+  background: rgba(255, 255, 255, 0.8);
   height: 3px;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* animation ouverture menu */
+/* animation menu */
 .menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
-
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* responsive pour mobile */
+/* responsive */
 @media (max-width: 560px) {
   .nav {
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
     align-items: center;
@@ -177,16 +174,20 @@
     display: flex;
   }
 
-  /* bouton langue intégré dans le menu mobile */
   .lang-switch {
     position: static;
     transform: none;
     margin-top: 15px;
-    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .header-container {
-    justify-content: center;
-    position: relative;
+  .header-logo {
+    left: 15px;
+  }
+
+  .header-logo img {
+    width: 38px;
+    height: 38px;
   }
 }
