@@ -1,113 +1,137 @@
-/* conteneur principal de la page contact */
+/* page contact */
 .contact-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
+  color: #eaeaea;
 }
 
-/* bloc du formulaire */
+/* section d'introduction */
+.contact-intro {
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.contact-intro h1 {
+  font-size: 28.8px;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.contact-intro p {
+  font-size: 16px;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* boutons linkedin et cv */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 15.2px;
+  font-weight: 500;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.linkedin-btn { background-color: #0077b5; }
+.linkedin-btn:hover { background-color: #005983; }
+
+.cv-btn { background-color: #c0392b; }
+.cv-btn:hover { background-color: #922b21; }
+
+/* formulaire de contact */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
   width: 100%;
-  max-width: 500px;
-  text-align: center;
 }
 
-/* style des champs texte et zone de message */
+.contact-form h2 {
+  margin-bottom: 8px;
+  font-size: 20.8px;
+  color: #ffffff;
+}
+
 .contact-form input,
 .contact-form textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f2f2f2;
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+  box-sizing: border-box;
 }
 
-/* zone de texte */
-.contact-form textarea {
-  resize: none;
-  min-height: 120px;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #5caaff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* bouton d’envoi */
-.contact-form button {
-  padding: 10px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #555;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.contact-form button:hover {
-  background-color: #333;
-}
-
-/* message de succès */
-.success-msg {
-  color: green;
-  margin-top: 1rem;
-}
-
-/* message d’erreur */
-.error-msg {
-  color: red;
-  margin-top: 1rem;
-}
-
-/* bloc contenant la zone de texte + compteur */
+/* zone de texte avec compteur */
 .textarea-wrapper {
   position: relative;
   width: 100%;
 }
 
-/* zone de texte avec espacement et bordure */
 .textarea-wrapper textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   resize: none;
-  min-height: 120px;
+  min-height: 130px;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* compteur de caractères */
 .char-counter {
   position: absolute;
-  bottom: 5px;
+  bottom: 6px;
   right: 10px;
-  font-size: 0.8rem;
-  color: #555;
+  font-size: 12.8px;
+  color: #888;
 }
 
-/* effet d’erreur visuelle sur les champs invalides */
-.contact-form input,
-.contact-form textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border 0.2s;
+/* bouton envoyer */
+.contact-form button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #5caaff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* bordure rouge douce pour les erreurs */
-.contact-form input.error-input,
-.contact-form textarea.error-input {
-  border: 2px solid #e74c3c;
+.contact-form button:hover { 
+  background: #4a93e6;
 }
 
-/* conteneur des messages d’erreur multiples */
-.error-msg-container p {
-  margin: 5px 0 0;
-  color: #e74c3c;
-  font-size: 0.9rem;
+/* messages de succès et d'erreur */
+.success-msg { color: #4caf50; }
+.error-msg { color: #e74c3c; }
+.error-input { border: 1px solid #e74c3c !important; }
+
+/* responsive */
+@media (max-width: 560px) {
+  .contact-intro { padding: 16px; }
+  .contact-intro h1 { font-size: 24px; }
+  .contact-form h2 { font-size: 17.6px; }
 }
