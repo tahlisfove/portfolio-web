@@ -5,7 +5,11 @@ CREATE TABLE "Project" (
     "description" TEXT NOT NULL,
     "imageUrl" TEXT,
     "link" TEXT,
+    "tags" TEXT[],
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Project_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Project_title_link_key" ON "Project"("title", "link");
