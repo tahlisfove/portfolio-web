@@ -1,15 +1,60 @@
-/* reset et styles de base */
-html, body, #root {
+/* reset et styles globaux */
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: 'Inter', Arial, sans-serif;
-  background: #fafafa;
-  color: #222;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #0f0f17;
+  color: #f5f5f5;
 }
 
-/* style global pour les boutons */
+/* style des titres */
+h1, h2, h3, h4 {
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+/* style des paragraphes */
+p {
+  color: #cccccc;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* style global des liens */
+a {
+  color: #1e90ff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #63b3ff;
+}
+
+/* style global des boutons */
 button {
   font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* style pour la sélection de texte */
+::selection {
+  background-color: #1e90ff;
+  color: white;
+}
+
+/* transition des éléments */
+* {
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
 }
