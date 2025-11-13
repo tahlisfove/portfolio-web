@@ -7,7 +7,7 @@ import "./index.css";
 /* point d'entrée de l'application */
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    {/* wrapper pour gérer la langue dans toute l'application */}
+    {/* pour gérer la langue */}
     <LanguageProvider>
       <App />
     </LanguageProvider>

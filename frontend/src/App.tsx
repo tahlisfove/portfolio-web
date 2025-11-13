@@ -8,13 +8,11 @@ import "./App.css";
 import { useLanguage } from "./context/LanguageContext";
 
 const App: React.FC = () => {
-  // état pour gérer la page active
   const [page, setPage] = useState<"home" | "projects" | "contact">("home");
-  // état pour gérer l'animation de transition entre pages
   const [transitioning, setTransitioning] = useState(false);
   const { language } = useLanguage();
 
-  // effet pour déclencher la transition à chaque changement de page ou de langue
+  // pour déclencher une transition à chaque changement de page
   useEffect(() => {
     setTransitioning(true);
     const timer = setTimeout(() => setTransitioning(false), 200);

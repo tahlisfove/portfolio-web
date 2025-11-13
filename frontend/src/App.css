@@ -1,4 +1,4 @@
-/* wrapper principal de l'application avec background animé subtil */
+/* wrapper principal avec background animé */
 .app-wrapper {
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   animation: gradientMove 20s ease infinite;
 }
 
-/* animation du gradient pour effet subtil */
+/* animation du gradient */
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -65,7 +65,7 @@
   transform: translateY(10px);
 }
 
-/* animation d'entrée */
+/* animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -77,7 +77,7 @@
   }
 }
 
-/* style de scrollbar personnalisé */
+/* style de scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
