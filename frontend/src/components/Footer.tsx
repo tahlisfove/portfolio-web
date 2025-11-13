@@ -9,13 +9,13 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ setPage }) => {
   const { t } = useLanguage();
 
-  // fonction pour naviguer vers la page contact
+  /* fonction pour naviguer vers la page contact */
   const goToContact = () => {
     setPage("contact");
   };
 
   return (
-    // footer principal contenant logos et texte
+    /* footer principal contenant logos et texte */
     <footer className="footer">
       {/* section logos : linkedin, github, bouton email */}
       <div className="footer-logos">
