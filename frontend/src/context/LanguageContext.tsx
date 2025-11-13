@@ -1,101 +1,61 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
+import type { ReactNode } from "react";
+import en from "../i18n/en.json";
+import fr from "../i18n/fr.json";
 
 /* différentes langues */
 type Language = "fr" | "en";
 
-/* contexte de langue */
-interface LanguageContextType {
+interface LanguageContextProps {
   language: Language;
+  setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
   t: (key: string) => string;
 }
 
-/* valeurs par défaut */
-const LanguageContext = createContext<LanguageContextType>({
-  language: "fr",
-  toggleLanguage: () => {},
-  t: (key: string) => key,
-});
-
 /* dictionnaire des traductions */
-const translations = {
-  fr: {
-    /* header */
-    home: "Accueil",
-    projects: "Projets",
-    contact: "Contact",
+const translations = { en, fr };
 
-    /* footer */
-    footer: "© 2025 Samuel Christoph. Réalisé avec React.",
-
-    /* contact page */
-    contactIntro: "Vous avez un projet, une idée ou simplement envie d’échanger ? N’hésitez pas à me laisser un message via le formulaire ci-dessous. Je suis toujours intéressé par de nouveaux défis, collaborations ou opportunités professionnelles.",
-    contactCV: "Télécharger mon CV",
-
-    /* formulaire */
-    contactFormTitle: "Formulaire de contact",
-    "Nom *": "Nom *",
-    "Email *": "Email *",
-    "Sujet *": "Sujet *",
-    "Message *": "Message *",
-    "Envoyer": "Envoyer",
-    fieldsRequired: "Veuillez remplir tous les champs obligatoires.",
-    invalidEmail: "Veuillez saisir un email valide.",
-    sendSuccess: "Message envoyé avec succès !",
-    sendError: "Erreur lors de l'envoi. Veuillez réessayer plus tard.",
-    contactMessageTooLong: "Le message ne peut pas dépasser 2000 caractères.",
-  },
-  en: {
-    /* header */
-    home: "Home",
-    projects: "Work",
-    contact: "Contact",
-
-    /* footer */
-    footer: "© 2025 Samuel Christoph. Built with React.",
-
-    /* contact page */
-    contactIntro: "Do you have a project, an idea, or simply want to chat? Feel free to leave me a message using the form below. I am always interested in new challenges, collaborations, or professional opportunities.",
-    contactCV: "Download my Resume",
-
-    /* formulaire */
-    contactFormTitle: "Contact Form",
-    "Nom *": "Name *",
-    "Email *": "Email *",
-    "Sujet *": "Subject *",
-    "Message *": "Message *",
-    "Envoyer": "Send",
-    fieldsRequired: "Please fill in all required fields.",
-    invalidEmail: "Please enter a valid email address.",
-    sendSuccess: "Message sent successfully!",
-    sendError: "Error sending message. Please try again later.",
-    contactMessageTooLong: "Message cannot exceed 2000 characters.",
-  },
-};
+/* valeurs par défaut */
+const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
 
 /* provider de langue */
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   /* langue actuelle */
   const [language, setLanguage] = useState<Language>("fr");
 
   /* fonction pour basculer entre fr et en */
   const toggleLanguage = () => {
-    setLanguage(language === "fr" ? "en" : "fr");
+    setLanguage((prev) => (prev === "fr" ? "en" : "fr"));
   };
 
   /* fonction de traduction selon la langue */
-  const t = (key: string) =>
-    translations[language][key as keyof typeof translations["fr"]] || key;
+  const t = (key: string): string => {
+    const parts = key.split(".");
+    let result: unknown = translations[language];
+    for (const part of parts) {
+      if (typeof result === "object" && result !== null && part in result) {
+        result = (result as Record<string, unknown>)[part];
+      } else {
+        return key;
+      }
+    }
+    return typeof result === "string" ? result : key;
+  };
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
 /* hook pour utiliser le contexte de langue */
-export const useLanguage = () => useContext(LanguageContext);
+export const useLanguage = (): LanguageContextProps => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
+};

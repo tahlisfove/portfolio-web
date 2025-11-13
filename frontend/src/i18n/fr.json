@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "intro": "Découvrez ici une sélection de mes projets techniques, allant du développement web aux systèmes distribués, illustrant mes compétences en programmation et conception logicielle.",
+    "btnGithub": "Voir tous mes projets sur GitHub",
+    "loading": "Chargement des projets..."
+  },
+  "contact": {
+    "intro": "Vous avez un projet, une idée ou simplement envie d’échanger ? N’hésitez pas à me laisser un message via le formulaire ci-dessous. Je suis toujours intéressé par de nouveaux défis et collaborations.",
+    "cv": "Télécharger mon CV",
+    "formTitle": "Formulaire de contact",
+    "name": "Nom *",
+    "email": "Email *",
+    "subject": "Sujet *",
+    "message": "Message *",
+    "send": "Envoyer",
+    "fieldsRequired": "Veuillez remplir tous les champs obligatoires.",
+    "invalidEmail": "Veuillez saisir un email valide.",
+    "sendSuccess": "Message envoyé avec succès !",
+    "sendError": "Erreur lors de l'envoi. Veuillez réessayer plus tard."
+  },
+  "footer": "© 2025 Samuel Christoph. Construit avec React."
+}

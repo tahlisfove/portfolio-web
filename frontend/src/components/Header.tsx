@@ -36,21 +36,21 @@ const Header: React.FC<HeaderProps> = ({ setPage }) => {
             className={`nav-link ${active === "projects" ? "active" : ""}`}
             onClick={() => handleClick("projects")}
           >
-            {t("projects")}
+            {t("nav.projects")}
           </button>
 
           <button
             className={`nav-link ${active === "home" ? "active" : ""}`}
             onClick={() => handleClick("home")}
           >
-            {t("home")}
+            {t("nav.home")}
           </button>
 
           <button
             className={`nav-link ${active === "contact" ? "active" : ""}`}
             onClick={() => handleClick("contact")}
           >
-            {t("contact")}
+            {t("nav.contact")}
           </button>
         </nav>
 

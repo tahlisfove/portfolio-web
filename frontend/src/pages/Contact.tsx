@@ -18,23 +18,23 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
 
-  /* reset au changement de langue */
+  /* reset des messages au changement de langue */
   useEffect(() => {
     setErrors([]);
     setSuccess(false);
     setSubmitted(false);
   }, [language]);
 
-  /* fonction de validation d'email */
+  /* validation d'email */
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   /* validation des champs */
   useEffect(() => {
     if (!submitted) return;
     const newErrors: string[] = [];
-    if (!name || !email || !subject || !message) newErrors.push(t("fieldsRequired"));
-    if (email && !validateEmail(email)) newErrors.push(t("invalidEmail"));
-    if (message.length > MAX_MESSAGE_LENGTH) newErrors.push(t("contactMessageTooLong"));
+    if (!name || !email || !subject || !message) newErrors.push(t("contact.fieldsRequired"));
+    if (email && !validateEmail(email)) newErrors.push(t("contact.invalidEmail"));
+    if (message.length > MAX_MESSAGE_LENGTH) newErrors.push(t("contact.messageTooLong"));
     setErrors([...new Set(newErrors)]);
   }, [name, email, subject, message, submitted, t]);
 
@@ -54,9 +54,9 @@ const Contact: React.FC = () => {
     setSubmitted(true);
 
     const newErrors: string[] = [];
-    if (!name || !email || !subject || !message) newErrors.push(t("fieldsRequired"));
-    if (email && !validateEmail(email)) newErrors.push(t("invalidEmail"));
-    if (message.length > MAX_MESSAGE_LENGTH) newErrors.push(t("contactMessageTooLong"));
+    if (!name || !email || !subject || !message) newErrors.push(t("contact.fieldsRequired"));
+    if (email && !validateEmail(email)) newErrors.push(t("contact.invalidEmail"));
+    if (message.length > MAX_MESSAGE_LENGTH) newErrors.push(t("contact.messageTooLong"));
 
     if (newErrors.length > 0) {
       setErrors([...new Set(newErrors)]);
@@ -74,7 +74,7 @@ const Contact: React.FC = () => {
       const data = await response.json();
 
       if (data.error) {
-        setErrors([t("sendError")]);
+        setErrors([t("contact.sendError")]);
         setSuccess(false);
         return;
       }
@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
       setMessage("");
       setSubmitted(false);
     } catch {
-      setErrors([t("sendError")]);
+      setErrors([t("contact.sendError")]);
       setSuccess(false);
     }
   };
@@ -97,8 +97,8 @@ const Contact: React.FC = () => {
     <div className="contact-page">
       {/* section d'introduction */}
       <section className="contact-intro">
-        <h1>{t("contact")}</h1>
-        <p>{t("contactIntro")}</p>
+        <h1>{t("nav.contact")}</h1>
+        <p>{t("contact.intro")}</p>
 
         {/* boutons externes */}
         <div className="contact-buttons">
@@ -112,18 +112,18 @@ const Contact: React.FC = () => {
           </a>
 
           <a href="/ChristophSamuel_CV.pdf" download className="btn cv-btn">
-            {t("contactCV")}
+            {t("contact.cv")}
           </a>
         </div>
       </section>
 
       {/* formulaire de contact */}
       <form onSubmit={handleSubmit} className="contact-form">
-        <h2>{t("contactFormTitle")}</h2>
+        <h2>{t("contact.formTitle")}</h2>
 
         <input
           type="text"
-          placeholder={t("Nom *")}
+          placeholder={t("contact.name")}
           value={name}
           onChange={(e) => setName(e.target.value)}
           className={hasError("name") ? "error-input" : ""}
@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
 
         <input
           type="text"
-          placeholder={t("Email *")}
+          placeholder={t("contact.email")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={hasError("email") ? "error-input" : ""}
@@ -139,7 +139,7 @@ const Contact: React.FC = () => {
 
         <input
           type="text"
-          placeholder={t("Sujet *")}
+          placeholder={t("contact.subject")}
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           className={hasError("subject") ? "error-input" : ""}
@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
         {/* zone de texte pour le message */}
         <div className="textarea-wrapper">
           <textarea
-            placeholder={t("Message *")}
+            placeholder={t("contact.message")}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             maxLength={MAX_MESSAGE_LENGTH}
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <button type="submit">{t("Envoyer")}</button>
+        <button type="submit">{t("contact.send")}</button>
 
         {/* affichage des erreurs */}
         {submitted && errors.length > 0 && (
@@ -173,7 +173,7 @@ const Contact: React.FC = () => {
         )}
 
         {/* message de succès */}
-        {success && <p className="success-msg">{t("sendSuccess")}</p>}
+        {success && <p className="success-msg">{t("contact.sendSuccess")}</p>}
       </form>
     </div>
   );
