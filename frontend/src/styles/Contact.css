@@ -1,0 +1,278 @@
+/* page de contact */
+.contact-page {
+  display: flex;
+  font-family: inherit;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  padding: 100px 10px;
+  box-sizing: border-box;
+}
+
+/***************************************************/
+
+/* partie de gauche (texte + infos) */
+.contact-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: sticky;
+  top: 50px;
+  max-height: calc(100vh - 50px);
+}
+
+/* disponibilité */
+.availability-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* titre principal */
+.contact-left h1,
+.contact-right h2 {
+  font-size: 30px;
+  color: #ffffff;
+  margin: 0;
+  filter: brightness(0.9);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+/* paragraphe d'introduction */
+.contact-left p {
+  font-size: 15px;
+  color: rgba(200, 200, 200, 0.7);
+  line-height: 1.3;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  max-width: 360px
+}
+
+/* div contenant les liens de contact */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.contact-info div {
+  display: flex;
+  gap: 10px;
+}
+
+/* icônes des liens de contact */
+.contact-info div img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* lien de contacts (mail, téléphone, linkedin) */
+.contact-link {
+  color: rgba(200, 200, 200, 0.7);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+  color: rgba(200, 200, 200, 0.7);
+}
+
+/***************************************************/
+
+
+/* colonne droite (formulaire) */
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* titre du formulaire */
+.contact-form-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+/* formulaire de contact */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* élement du formulaire */
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f2f2f2;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* div zone de message */
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* zone de message */
+.textarea-wrapper textarea {
+  resize: none;
+  min-height: 160px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* compteur de caractères */
+.char-counter {
+  position: absolute;
+  bottom: 6px;
+  right: 10px;
+  font-size: 12px;
+  color: #888;
+}
+
+/***************************************************/
+
+
+/* container des messages */
+.error-msg-container,
+.success-msg {
+  text-align: center;
+}
+
+/* div de message visible */
+.error-msg-container.show,
+.success-msg.show {
+  opacity: 1;
+  margin-top: -20px;
+  max-height: 200px;
+}
+
+/* message erreurs et effets */
+.error-msg {
+  color: #df5f51;
+  margin: 0px;
+  margin-top: 2px;
+}
+
+.error-input {
+  border: 1px solid #df5f51 !important;
+}
+
+/* messages de succès */
+.success-msg {
+  color: #4caf50;
+  margin: 0px;
+}
+
+/***************************************************/
+
+
+/* responsive tablettes */
+@media (max-width: 900px) {
+
+  /* page de contact */
+  .contact-page {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 80px 40px;
+  }
+
+  /* aligner a droite les informations */
+  .contact-left {
+    position: static;
+    align-items: flex-end;
+    text-align: right;
+    width: 100%;
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%;
+  }
+
+  .contact-info div {
+    justify-content: flex-end;
+  }
+
+  .availability-contact {
+    margin-top: 15px;
+  }
+
+  .contact-info div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  /* taille des titres */
+  .contact-left h1,
+  .contact-right h2 {
+    font-size: 28px;
+  }
+
+  /* taille des textes */
+  .contact-left p,
+  .contact-left a,
+  .contact-form input,
+  .textarea-wrapper textarea {
+    font-size: 14px;
+  }
+
+  /* espacement titre formulaire */
+  .contact-form {
+    margin-top: 25px;
+  }
+}
+
+/***************************************************/
+
+
+/* responsive mobiles */
+@media (max-width: 600px) {
+
+  /* page contact */
+  .contact-page {
+    padding: 20px 30px 40px;
+  }
+
+  .contact-left,
+  .contact-info div {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* taille des titres */
+  .contact-left h1,
+  .contact-right h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  /* taille des textes */
+  .contact-left p,
+  .contact-left a,
+  .contact-form input,
+  .textarea-wrapper textarea {
+    font-size: 12px;
+  }
+}

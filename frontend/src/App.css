@@ -10,6 +10,7 @@
   animation: gradientMove 20s ease infinite;
 }
 
+/* animation du dégradé */
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;

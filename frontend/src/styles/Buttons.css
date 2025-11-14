@@ -1,0 +1,116 @@
+/* style  pour les boutons du site */
+.btn-contact,
+.btn-see-more,
+.contact-cv a {
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* icônes contact accueil */
+.btn-contact img {
+  width: 16px;
+  height: 12px;
+  margin-left: 10px;
+}
+
+/* icône bouton du cv */
+.contact-cv a img {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+}
+
+/* effet brillance */
+.btn-contact::before,
+.btn-see-more::before,
+.contact-cv a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.20), transparent);
+  transform: skewX(-20deg);
+  animation: shineMotion 3.2s infinite ease-in-out;
+}
+
+/* animation brillance */
+@keyframes shineMotion {
+  0% { left: -120%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* effet au survol */
+.btn-contact:hover,
+.btn-see-more:hover,
+.contact-cv a:hover {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.06), 0 0 20px rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+/***************************************************/
+
+
+/* div bouton du formulaire */
+.contact-form .button-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* bouton submit formulaire */
+.animated-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #1ECD97;
+  background: rgba(255, 255, 255, 0.05);
+  color: #1ECD97;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* effet au survol */
+.animated-submit-btn:hover {
+  background: #1ECD97;
+  color: #414141;
+}
+
+/* effet d'envoi */
+.animated-submit-btn.working {
+  width: 40px;
+  border-color: #bbbbbb;
+  border-left-color: #1ECD97;
+  font-size: 0;
+  animation: rotating 2s linear infinite;
+  margin: 0 auto;
+}
+
+/* animation d'envoi */
+@keyframes rotating {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

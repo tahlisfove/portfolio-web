@@ -1,6 +1,6 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
-import "./Footer.css";
+import "../styles/Footer.css";
 
 interface FooterProps {
   /* fonction qui change la page active */

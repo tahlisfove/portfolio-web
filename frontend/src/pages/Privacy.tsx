@@ -1,6 +1,6 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
-import "./Privacy.css";
+import "../styles/Privacy.css";
 
 const Privacy: React.FC = () => {
   const { t } = useLanguage();
