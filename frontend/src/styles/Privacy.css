@@ -7,7 +7,7 @@
 
 /* titre principal */
 .privacy-page h1 {
-  font-size: 30px;
+  font-size: 26px;
   margin-bottom: 20px;
   font-weight: 600;
   color: #a8a8a8;
@@ -16,7 +16,7 @@
 
 /* sous-titres */
 .privacy-page h2 {
-  font-size: 21px;
+  font-size: 18px;
   margin-bottom: 15px;
   font-weight: 500;
   color: #a8a8a8;
@@ -27,7 +27,7 @@
   margin-bottom: 20px;
   text-align: justify;
   color: #fff;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.4;
 }
 
@@ -35,7 +35,7 @@
 .privacy-section {
   position: relative;
   padding-bottom: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .privacy-section::after {
