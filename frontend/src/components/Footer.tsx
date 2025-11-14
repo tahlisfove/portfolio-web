@@ -16,17 +16,17 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
       <div className="footer-logos">
         {/* lien linkedin */}
         <a href="https://www.linkedin.com/in/samuelchristoph/" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/linkedin.png" alt="LinkedIn" />
+          <img src="/icons/logos/linkedin.png" alt="LinkedIn" />
         </a>
 
         {/* lien github */}
         <a href="https://github.com/tahlisfove" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/github.png" alt="GitHub" />
+          <img src="/icons/logos/github.png" alt="GitHub" />
         </a>
 
         {/* ouvre la page contact */}
         <button className="email-button" onClick={() => setPage("contact")}>
-          <img src="/icons/email.png" alt="Contact" />
+          <img src="/icons/logos/email.png" alt="Contact" />
         </button>
       </div>
 

@@ -12,7 +12,7 @@ async function main() {
         title_en: "Interactive Personal Portfolio",
         description_en: "Modern bilingual portfolio showcasing my projects and fullstack skills. Smooth navigation, clear sections, secure contact form, integrated animations, and responsive design for an optimal user experience on all devices."
       },
-      imageUrl: "/icons/logo_samuel.png",
+      imageUrl: "/icons/projects/portfolio.png",
       link: "https://github.com/tahlisfove/portfolio-web",
       tags: ["React", "TypeScript", "CSS", "UI/UX", "Node.js", "Prisma"]
     },
@@ -23,7 +23,7 @@ async function main() {
         title_en: "Todo List Application",
         description_en: "Full-featured web task manager: create, update, delete, reorder tasks, filter by name or priority. Intuitive UI with dark mode support, Angular frontend and Spring Boot backend with PostgreSQL."
       },
-      imageUrl: "/icons/todolist.png",
+      imageUrl: "/icons/projects/todolist.png",
       link: "https://github.com/tahlisfove/todo-app",
       tags: ["Angular", "Spring Boot", "PostgreSQL", "TypeScript", "CRUD", "UI/UX"]
     },
@@ -34,7 +34,7 @@ async function main() {
         title_en: "Shared Budget Management Site",
         description_en: "Collaborative application to manage a shared budget. Secure OAuth authentication, real-time expense tracking, transaction history, full Node.js backend with Express and PostgreSQL, orchestrated with Docker."
       },
-      imageUrl: "/icons/tricount.png",
+      imageUrl: "/icons/projects/tricount.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/master_informatique/m2_informatique/budget-app",
       tags: ["Node.js", "Express", "PostgreSQL", "OAuth", "REST API", "Docker"]
     },
@@ -45,7 +45,7 @@ async function main() {
         title_en: "Deezer Blind Test Mobile App",
         description_en: "Android music game with multi-screen interface and score tracking. Deezer API integration, keyboard input handling, local score storage, smooth navigation between screens with Android Studio and Java."
       },
-      imageUrl: "/icons/blindtest.png",
+      imageUrl: "/icons/projects/blindtest.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/master_informatique/m2_informatique/programmation_mobile_android",
       tags: ["Java", "Android Studio", "API", "UI/UX", "Multi-screen", "Scoreboard"]
     },
@@ -56,7 +56,7 @@ async function main() {
         title_en: "Job Offer Recommendation System",
         description_en: "HR simulation tool to recommend relevant CVs. Data analysis using NLP and machine learning, offer and profile processing, simple web interface for job entries, robust Python backend with automated recommendations."
       },
-      imageUrl: "/icons/recommendation.png",
+      imageUrl: "/icons/projects/recommendation.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/master_informatique/m1_informatique/projet_tutore",
       tags: ["Python", "NLP", "Machine Learning", "API", "Data", "Processing"]
     },
@@ -67,7 +67,7 @@ async function main() {
         title_en: "IoT Dashboard for Skaters",
         description_en: "Interactive dashboard simulating IoT sensors displaying weather, crowd, and skatepark lighting. Frontend with Node-RED and JavaScript, weather API integration, sensor data simulation, and visual graph results."
       },
-      imageUrl: "/icons/skatepark.png",
+      imageUrl: "/icons/projects/skatepark.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/master_informatique/m1_informatique/internet_des_objets/projet_IoT",
       tags: ["Node-RED", "JavaScript", "API", "IoT", "Dashboard", "Sensors"]
     },
@@ -78,7 +78,7 @@ async function main() {
         title_en: "Electronic Bar Simulation",
         description_en: "Simulation of a bar with multi-process management. Inter-process communication via TCP/UDP and RMI, using semaphores and shared memory for client synchronization, minimal but functional UI to test distributed systems logic."
       },
-      imageUrl: "/icons/bar.png",
+      imageUrl: "/icons/projects/bar.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/licence_informatique/l3_informatique/systemes_distribuees",
       tags: ["C", "Java", "TCP/UDP", "RMI", "IPC", "Synchronization"]
     },
