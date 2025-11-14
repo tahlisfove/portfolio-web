@@ -34,16 +34,19 @@
     "btnGithub": "See all my projects on GitHub"
   },
   "contact": {
-    "intro": "Do you have a project, an idea, or simply want to chat? Feel free to send me a message using the form below. I'm always interested in new challenges and collaborations.",
+    "contactTitle": "Contact me.",
+    "contactText": "A project, an idea, or just want to chat? Reach out via email, phone, or LinkedIn. I’ll get back to you quickly and happily.",
     "cv": "Download my Resume",
     "formTitle": "Contact Form",
     "name": "Name *",
     "email": "Email *",
+    "phone": "Phone *",
     "subject": "Subject *",
     "message": "Message *",
     "send": "Send",
     "fieldsRequired": "Please fill in all required fields.",
     "invalidEmail": "Please enter a valid email address.",
+    "invalidPhone": "Phone number can only contain digits.",
     "sendSuccess": "Message sent successfully!",
     "sendError": "Error sending message. Please try again later."
   },
@@ -62,7 +65,8 @@
     "contactTextEnd": " for any further clarification or request."
   },
   "footer": {
-    "text": "© 2025 Samuel Christoph. All rights reserved.",
+    "text": "© 2025 Samuel Christoph.",
+    "right": "All rights reserved.",
     "privacy": "Privacy Policy"
   }
 }

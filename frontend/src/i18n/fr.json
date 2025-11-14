@@ -34,16 +34,19 @@
     "btnGithub": "Voir tous mes projets sur GitHub"
   },
   "contact": {
-    "intro": "Vous avez un projet, une idée ou simplement envie d’échanger ? N’hésitez pas à me laisser un message via le formulaire ci-dessous. Je suis toujours intéressé par de nouveaux défis et collaborations.",
+    "contactTitle": "Me contacter.",
+    "contactText": "Un projet, une idée ou simplement envie d’échanger ? Contactez-moi par email, téléphone ou LinkedIn. Je réponds rapidement et avec plaisir.",
     "cv": "Télécharger mon CV",
     "formTitle": "Formulaire de contact",
     "name": "Nom *",
     "email": "Email *",
+    "phone": "Téléphone *",
     "subject": "Sujet *",
     "message": "Message *",
     "send": "Envoyer",
     "fieldsRequired": "Veuillez remplir tous les champs obligatoires.",
     "invalidEmail": "Veuillez saisir un email valide.",
+    "invalidPhone": "Le téléphone ne peut contenir que des chiffres.",
     "sendSuccess": "Message envoyé avec succès !",
     "sendError": "Erreur lors de l'envoi. Veuillez réessayer plus tard."
   },
@@ -62,7 +65,8 @@
     "contactTextEnd": " pour toute clarification ou demande supplémentaire."
   },
   "footer": {
-    "text": "© 2025 Samuel Christoph. Tous droits réservés.",
+    "text": "© 2025 Samuel Christoph.",
+    "right": "Tous droits réservés.",
     "privacy": "Politique de confidentialité"
   }
 }
