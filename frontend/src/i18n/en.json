@@ -4,11 +4,34 @@
     "projects": "Projects",
     "contact": "Contact"
   },
+  "home": {
+    "hero": {
+      "name": "Samuel Christoph",
+      "status": "Junior Full Stack Developer",
+      "availability": "Available for new opportunities",
+      "contactBtn": "Contact Me"
+    },
+    "about": {
+      "title": "About",
+      "p1": "I’m a junior fullstack developer based in Montpellier, France. Passionate about clean code, design and UX, I enjoy creating robust and aesthetic digital experiences.",
+      "p2": "My goal is to build scalable applications that combine performance and intuitive interfaces, while continuously improving my technical and creative skills."
+    },
+    "stack": {
+      "sectionTitle": "Tech Stack"
+    },
+    "projects": {
+      "sectionTitle": "Projects",
+      "seeMoreBtn": "See More",
+      "loading": "Loading projects...",
+      "years": {
+        "ongoing": "ongoing..."
+      }
+    }
+  },
   "projects": {
     "title": "My Projects",
     "intro": "Here you’ll find a selection of my technical projects, from web development to distributed systems, showcasing my programming and software design skills.",
-    "btnGithub": "See all my projects on GitHub",
-    "loading": "Loading projects..."
+    "btnGithub": "See all my projects on GitHub"
   },
   "contact": {
     "intro": "Do you have a project, an idea, or simply want to chat? Feel free to send me a message using the form below. I'm always interested in new challenges and collaborations.",
@@ -24,5 +47,22 @@
     "sendSuccess": "Message sent successfully!",
     "sendError": "Error sending message. Please try again later."
   },
-  "footer": "© 2025 Samuel Christoph. Built with React."
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "This page explains in detail how your personal information is collected, used, and protected when you use the contact form on this site. The collection aims to respond to your inquiries while ensuring the security and confidentiality of your data.",
+    "dataCollection": "Data Collection",
+    "dataCollectionText": "When you fill out the contact form, certain personal information such as your name, email address, the subject of your message, and the message content is collected. This information is used exclusively to understand your request and respond accurately and personally. No additional data is collected without your explicit consent.",
+    "useOfData": "Use of Data",
+    "useOfDataText": "The information you provide is used solely to process and respond to your inquiry. It is never shared with third parties and is not used for any commercial purposes. Access to these data is strictly limited and your information remains confidential.",
+    "dataRetention": "Data Retention",
+    "dataRetentionText": "Your information is transmitted directly to my email for the purpose of responding to your message. It is retained only until your inquiry has been addressed. No additional storage or processing is performed, and your data remains securely in my mailbox.",
+    "contactInfos": "Contact Information",
+    "contactTextStart": "If you have any questions, concerns, or need clarification regarding any aspect of this privacy policy, you can reach me directly by e-mail at ",
+    "contactTextMiddle": " or via ",
+    "contactTextEnd": " for any further clarification or request."
+  },
+  "footer": {
+    "text": "© 2025 Samuel Christoph. All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
 }

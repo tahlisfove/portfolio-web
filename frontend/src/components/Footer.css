@@ -4,8 +4,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: transparent;
+  background: radial-gradient(circle at 30% 20%, #0e0e18 0%, #0a0a0e 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 20s ease infinite;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* section des logos */
@@ -14,7 +23,7 @@
   display: flex;
   justify-content: center;
   gap: 25px;
-  padding: 18px 0;
+  padding: 30px 0 20px;
 }
 
 /* liens et bouton email */
@@ -31,7 +40,7 @@
 .footer-logos img {
   width: 36px;
   height: 36px;
-  filter: brightness(0.85) invert(0.9);
+  filter: brightness(0.6) invert(0.9);
   transition: transform 0.2s ease, filter 0.3s ease;
 }
 
@@ -45,19 +54,44 @@
 .footer-text {
   width: 100%;
   text-align: center;
-  padding: 10px 0 14px;
+  padding: 10px 0 10px;
 }
 
-.footer-text p {
+.footer-text p,
+.footer-text a {
   margin: 0;
   font-size: 12px;
   color: rgba(200, 200, 200, 0.7);
   letter-spacing: 0.3px;
-  user-select: none;
   font-weight: 300;
 }
 
+/* lien de la politique de confidentialité */
+.footer-text .privacy-link {
+  background: none;
+  border: none;
+  color: rgba(200, 200, 200, 0.7);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 3px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 12px;
+}
+
+.footer-text .privacy-link:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(200, 200, 200, 0.7);
+}
+
 /* responsive */
+@media (max-width: 1024px) {
+  .footer-logos {
+    gap: 20px;
+    padding: 16px 0;
+  }
+}
+
 @media (max-width: 560px) {
   .footer-logos {
     gap: 18px;

@@ -1,0 +1,70 @@
+/* page de confidentialité */
+.privacy-page {
+  padding: 30px 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #fff;
+}
+
+/* titre principal */
+.privacy-page h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #a8a8a8;
+  text-align: left;
+}
+
+/* sous-titres */
+.privacy-page h2 {
+  font-size: 21px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #a8a8a8;
+}
+
+/* paragraphes */
+.privacy-page p {
+  margin-bottom: 20px;
+  text-align: justify;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* séparation entre sections */
+.privacy-section {
+  position: relative;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.privacy-section::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.08) 20%, rgba(255, 255, 255, 0.08) 80%, transparent 100%);
+}
+
+/* retirer la séparation pour la dernière section */
+.privacy-section:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.privacy-section:last-of-type::after {
+  display: none;
+}
+
+/* liens email et linkedin */
+.privacy-page a {
+  color: #5caaff;
+  text-decoration: none;
+}
+
+.privacy-page a:hover {
+  text-decoration: underline;
+}
