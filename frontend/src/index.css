@@ -2,6 +2,7 @@
 html,
 body,
 #root {
+  user-select: none;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -13,13 +14,13 @@ body,
 
 /* style des titres */
 h1, h2, h3, h4 {
-  color: #ffffff;
+  color: #fff;
   letter-spacing: 0.5px;
 }
 
 /* style des paragraphes */
 p {
-  color: #cccccc;
+  color: #fff;
   line-height: 1.6;
   font-size: 16px;
 }
@@ -42,10 +43,6 @@ button {
   background: none;
   cursor: pointer;
   transition: transform 0.2s ease;
-}
-
-button:hover {
-  transform: scale(1.05);
 }
 
 /* style pour la sélection de texte */
