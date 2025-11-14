@@ -51,7 +51,6 @@
 
 /* retirer la séparation pour la dernière section */
 .privacy-section:last-of-type {
-  padding-bottom: 0;
   margin-bottom: 0;
 }
 
