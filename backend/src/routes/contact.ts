@@ -5,10 +5,10 @@ const router = Router();
 
 /* route post pour l’envoi du formulaire de contact */
 router.post("/", async (req, res) => {
-  const { name, email, subject, message } = req.body;
+  const { name, email, phone, subject, message } = req.body;
 
   /* validation des champs requis */
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !phone || !subject || !message) {
     return res.status(400).json({ error: "Tous les champs sont obligatoires" });
   }
 
@@ -47,6 +47,7 @@ router.post("/", async (req, res) => {
       text: `
 Nom: ${name}
 Email: ${email}
+Téléphone: ${phone}
 Sujet: ${subject}
 
 Message:${message}
