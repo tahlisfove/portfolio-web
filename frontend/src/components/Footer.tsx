@@ -38,6 +38,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
             {t("footer.privacy")}
           </button>
         </p>
+        <p>{t("footer.right")}{" "}</p>
       </div>
     </footer>
   );
