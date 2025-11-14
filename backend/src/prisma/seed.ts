@@ -14,10 +14,10 @@ async function main() {
       },
       imageUrl: "/icons/logo_samuel.png",
       link: "https://github.com/tahlisfove/portfolio-web",
-      tags: ["React", "TypeScript", "CSS", "UIUX", "Node.js", "Prisma"]
+      tags: ["React", "TypeScript", "CSS", "UI/UX", "Node.js", "Prisma"]
     },
     {
-      title: "Todo List Application",
+      title: "Application de gestion de tâches",
       description: "Application web de gestion de tâches complète : création, modification, suppression, réorganisation des tâches, filtrage par nom ou priorité. Interface intuitive avec support du mode sombre et intégration frontend Angular et backend Spring Boot relié à une base PostgreSQL.",
       translations: {
         title_en: "Todo List Application",
@@ -25,7 +25,7 @@ async function main() {
       },
       imageUrl: "/icons/todolist.png",
       link: "https://github.com/tahlisfove/todo-app",
-      tags: ["Angular", "Spring Boot", "PostgreSQL", "TypeScript", "CRUD", "UIUX"]
+      tags: ["Angular", "Spring Boot", "PostgreSQL", "TypeScript", "CRUD", "UI/UX"]
     },
     {
       title: "Site de Gestion de budget Partagé",
@@ -47,7 +47,7 @@ async function main() {
       },
       imageUrl: "/icons/blindtest.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/master_informatique/m2_informatique/programmation_mobile_android",
-      tags: ["Java", "Android Studio", "API", "UIUX", "Multi-screen", "Scoreboard"]
+      tags: ["Java", "Android Studio", "API", "UI/UX", "Multi-screen", "Scoreboard"]
     },
     {
       title: "Système de Recommandation d’Offres d’Emploi",
