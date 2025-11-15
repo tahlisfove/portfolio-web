@@ -46,7 +46,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
   /* tri des projets pour affichage */
   const projectOrder = [
     projects.find(p => p.title === "Portfolio personnel interactif"),
-    projects.find(p => p.title === "Todo List Application"),
+    projects.find(p => p.title === "Application de gestion de tâches"),
     projects.find(p => p.title === "Site de Gestion de budget Partagé")
   ].filter(Boolean) as Project[];
 
