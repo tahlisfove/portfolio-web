@@ -220,7 +220,7 @@
   }
 
   .availability-contact {
-    margin-top: 20px;
+    margin-top: 70px;
   }
 
   .contact-info div {
@@ -271,6 +271,10 @@
   .contact-left a,
   .contact-form input,
   .textarea-wrapper textarea {
-    font-size: 12px;
+    font-size: 13px;
+  }
+
+  .contact-right h2{
+    margin-top: 50px;
   }
 }

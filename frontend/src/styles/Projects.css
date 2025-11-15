@@ -59,12 +59,17 @@
 /* responsive */
 @media (max-width: 600px) {
   .projects-container {
-    padding: 20px 15px;
+    padding: 20px 15px 60px 15px;
     text-align: center;
+  }
+
+  .projects-intro h2 {
+    font-size: 24px;
   }
 
   .projects-intro p {
     text-align: center;
+    font-size: 13px;
   }
 
   .project-card {

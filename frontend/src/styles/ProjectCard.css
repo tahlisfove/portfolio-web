@@ -1,6 +1,5 @@
 /* pancarte d'un projet */
 .project-card {
-  width: 95%;
   margin: 0 auto 40px auto;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -125,7 +124,7 @@
   }
 
   .project-card h3 {
-    font-size: 22px;
+    font-size: 21px;
     margin-left: 0;
   }
 
@@ -134,7 +133,7 @@
   }
 
   .project-card p {
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -147,5 +146,9 @@
     font-size: 12px;
     padding: 3px 10px;
     margin: 3px 6px;
+  }
+
+  .btn-project-code {
+    padding: 0 15px;
   }
 }

@@ -141,7 +141,7 @@ section:last-of-type::after {
 /* titre des sections */
 .about h2, .stack h2, .featured-projects h2 {
   margin-bottom: 30px;
-  font-size: 22px;
+  font-size: 24px;
   color: #8a8a8a;
 }
 
@@ -227,14 +227,32 @@ section:last-of-type::after {
 }
 
 @media (max-width: 600px) {
+
+  .featured-projects h2 {
+    font-size: 21px;
+  }
+
+  .about p {
+    text-align: left;
+    font-size: 13px;
+  }
+
   .stack-grid {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 0 100px;
+    padding: 0 60px;
   }
 
   .stack-item {
     height: 130px;
+  }
+
+  .project-title {
+    font-size: 13px;
+  }
+
+  .btn-see-more {
+    font-size: 12px;
   }
 }
 
