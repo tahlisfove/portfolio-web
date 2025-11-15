@@ -57,7 +57,9 @@ section:last-of-type::after {
 .hero h1 {
   font-size: 30px;
   margin-bottom: 0;
-  color: #eeeeee;
+  color: #fff;
+  filter: brightness(1);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.2), 0 0 6px rgba(255, 255, 255, 0.3);
 }
 
 /* spécialité */

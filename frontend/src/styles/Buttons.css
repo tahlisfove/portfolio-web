@@ -1,7 +1,9 @@
 /* style  pour les boutons du site */
 .btn-contact,
 .btn-see-more,
-.contact-cv a {
+.contact-cv a,
+.btn-project-code,
+.btn-github-profile {
   font-size: 13px;
   display: inline-flex;
   align-items: center;
@@ -33,10 +35,20 @@
   margin-left: 4px;
 }
 
+/* bouton page projets */
+.btn-github-profile,
+.btn-see-more,
+.btn-contact {
+  margin: 0;
+  padding: 8px 20px;
+}
+
 /* effet brillance */
 .btn-contact::before,
 .btn-see-more::before,
-.contact-cv a::before {
+.contact-cv a::before,
+.btn-project-code::before,
+.btn-github-profile::before {
   content: "";
   position: absolute;
   top: 0;
@@ -59,7 +71,9 @@
 .btn-contact:hover,
 .btn-see-more:hover,
 .contact-cv a:hover,
-.lang-switch:hover {
+.lang-switch:hover,
+.btn-project-code:hover,
+.btn-github-profile:hover {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.06), 0 0 20px rgba(255, 255, 255, 0.10);
   background: rgba(255, 255, 255, 0.08);
   color: white;
