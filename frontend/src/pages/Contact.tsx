@@ -1,3 +1,5 @@
+/* page de contact */
+
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import "../styles/Contact.css";

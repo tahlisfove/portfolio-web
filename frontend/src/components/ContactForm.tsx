@@ -1,4 +1,4 @@
-/* ce composant contient tout le formulaire de contact */
+/* formulaire de contact */
 
 import React, { useState, useEffect } from "react"
 import { useLanguage } from "../context/LanguageContext"
@@ -119,7 +119,7 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form">
+    <form role="form" onSubmit={handleSubmit} className="contact-form">
 
       {/* input nom */}
       <input
@@ -180,7 +180,7 @@ const ContactForm: React.FC = () => {
           aria-required="true"
           aria-invalid={hasError("message")}
         />
-        <div className="char-counter">
+        <div aria-live="polite" className="char-counter">
           {message.length} / {MAX_MESSAGE_LENGTH}
         </div>
       </div>

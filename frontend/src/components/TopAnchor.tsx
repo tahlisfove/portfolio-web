@@ -1,6 +1,7 @@
+/* ancrage pour scroll */
+
 import React, { useEffect, useRef } from "react";
 
-/* composant en haut de page */
 interface TopAnchorProps {
   page: string;
 }
