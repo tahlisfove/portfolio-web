@@ -50,7 +50,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
     projects.find(p => p.title === "Site de Gestion de budget Partagé")
   ].filter(Boolean) as Project[];
 
-  const yearLabels = [t("home.projects.years.ongoing"), "2025", "2024"];
+  const yearLabels = [t("home.projects.years.ongoing"), "2025", "2024", "2023"];
 
   return (
     <div className="home-container">
@@ -59,7 +59,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       <section className="hero" aria-label={t("home.hero.sectionAria")} role="region">
         <div className="hero-content">
           <div className="hero-photo" aria-label={t("home.hero.photoAria")}>
-            <div className="photo-placeholder"></div>
+            <img src="/photo_samuel.jpg" alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
           </div>
           <h1>{t("home.hero.name")}</h1>
           <h2>{t("home.hero.status")}</h2>

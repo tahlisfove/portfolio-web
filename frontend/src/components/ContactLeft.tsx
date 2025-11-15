@@ -56,7 +56,7 @@ const ContactLeft: React.FC = () => {
       {/* telechargement du cv */}
       <div className="contact-cv">
         <a
-          href="/ChristophSamuel_CV.pdf"
+          href="/cv_christoph_samuel.pdf"
           download
           aria-label={language === "fr" ? "telecharger le CV de Samuel" : "download Samuel's CV"}
         >
