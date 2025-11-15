@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { useLanguage } from "../context/LanguageContext"
-import "./Header.css"
+import "../styles/Header.css"
 
 interface HeaderProps {
   setPage: (page: "home" | "projects" | "contact") => void
