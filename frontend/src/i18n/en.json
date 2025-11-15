@@ -12,9 +12,9 @@
       "contactBtn": "Contact Me"
     },
     "about": {
-      "title": "About",
-      "p1": "I’m a junior fullstack developer based in Montpellier, France. Passionate about clean code, design and UX, I enjoy creating robust and aesthetic digital experiences.",
-      "p2": "My goal is to build scalable applications that combine performance and intuitive interfaces, while continuously improving my technical and creative skills."
+      "title": "About me",
+      "p1": "Junior fullstack developer based in Montpellier, I design and enhance features on both front-end and back-end. I aim to balance design, usability, and architecture to create smooth experiences across web and mobile. I pay particular attention to coherence, structure, and overall product quality.",
+      "p2": "During my final-year internship, I developed a complete tool in a new technical environment, which strengthened my ability to organize my work and make sound technical decisions. Today, I continue exploring modern frameworks to expand my skills and am eager to join a team where I can contribute to engaging projects."
     },
     "stack": {
       "sectionTitle": "Tech Stack"

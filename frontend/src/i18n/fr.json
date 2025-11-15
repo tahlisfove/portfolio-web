@@ -12,9 +12,9 @@
       "contactBtn": "Me contacter"
     },
     "about": {
-      "title": "À propos",
-      "p1": "Je suis un développeur fullstack junior basé à Montpellier, passionné par le design, l’UX et le code propre. J’aime créer des expériences numériques robustes et esthétiques.",
-      "p2": "Mon objectif est de concevoir des applications performantes et intuitives tout en continuant d’améliorer mes compétences techniques et créatives."
+      "title": "Présentation",
+      "p1": "Développeur fullstack junior basé à Montpellier, je conçois et améliore des fonctionnalités aussi bien côté front-end que back-end. J’aime trouver l’équilibre entre design, ergonomie et architecture pour créer des expériences fluides sur web et mobile. Je suis particulièrement attentif à la cohérence, à la structure et à la qualité globale d’un produit.",
+      "p2": "Lors de mon stage de fin d’études, j’ai développé un outil complet dans un écosystème que je découvrais, ce qui a renforcé ma capacité à m’organiser et à prendre des décisions techniques. Aujourd’hui, je continue d’explorer des frameworks modernes pour enrichir mes compétences et suis motivé à rejoindre une équipe pour contribuer à des projets stimulants."
     },
     "stack": {
       "sectionTitle": "Stack technologique"

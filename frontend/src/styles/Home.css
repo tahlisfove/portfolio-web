@@ -1,0 +1,294 @@
+/* page d'accueil */
+.home-container {
+  padding: 80px 0 0 0;
+  font-family: "Inter", sans-serif;
+}
+
+/* différentes sections */
+section {
+  position: relative;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  font-family: initial;
+}
+
+/* ligne entre les sections */
+section::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, transparent 0%, rgba(51, 51, 51, 0.8) 20%, rgba(51, 51, 51, 0.8) 80%, transparent 100%);
+}
+
+/* dernière section : pas de ligne ni de marge */
+section:last-of-type {
+  margin-bottom: 0;
+}
+
+section:last-of-type::after {
+  display: none;
+}
+
+/***************************************************/
+
+
+/* section présentation */
+.hero, 
+.hero-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* photo de présentation */
+.hero-photo .photo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #8a8a8a;
+}
+
+/* nom prénom */
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 0;
+  color: #eeeeee;
+}
+
+/* spécialité */
+.hero h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #8a8a8a;
+  margin-top: 5px;
+  margin-bottom: 12px;
+}
+
+/* disponibilité */
+.availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* bouton de disponibilité */
+.status-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #6ffa8f;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #6ffa8f;
+  animation: pulse 1.6s infinite ease-in-out;
+}
+
+.availability-text {
+  color: #5dc575;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+/* div logos */
+.contacts {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+/* liens des logos */
+.contacts a {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacts img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0.6) invert(0.9);
+  transition: transform 0.2s ease, filter 0.3s ease;
+}
+
+.contacts img:hover {
+  transform: scale(1.15);
+  filter: brightness(1) drop-shadow(0 0 6px rgba(100, 149, 237, 0.6));
+}
+
+.btn-contact {
+  margin-top: 5px;
+}
+
+/***************************************************/
+
+
+/* titre des sections */
+.about h2, .stack h2, .featured-projects h2 {
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #8a8a8a;
+}
+
+.stack h2 {
+  margin-bottom: 40px;
+}
+
+/* texte de présentation */
+.about p {
+  margin-top: 15px;
+  margin-bottom: 0;
+  text-align: justify;
+  font-size: 14px;
+  color: #eeeeee;
+}
+
+/***************************************************/
+
+
+/* liste des technologies */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* carte d'une technologie */
+.stack-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  width: 100%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stack-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* image d'une technologie */
+.stack-item img {
+  width: 45px; 
+  height: 45px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  flex: 0 0 auto;
+  transform: translateZ(0);
+}
+
+/* nom d'une technologie */
+.stack-item span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0.9;
+  transform: translateZ(0);
+}
+
+/***************************************************/
+
+
+/* responsive pour le grid */
+@media (max-width: 1024px) {
+  .stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    padding: 0 80px;
+  }
+
+  .stack-item {
+    height: 140px;
+  }
+}
+
+@media (max-width: 600px) {
+  .stack-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 100px;
+  }
+
+  .stack-item {
+    height: 130px;
+  }
+}
+
+/***************************************************/
+
+
+/* section projets */
+.featured-projects {
+  padding-bottom: 60px;
+}
+
+/* liste des 3 derniers projets */
+.projects-line {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+/* un élement de la liste */
+.project-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  transition: background 0.2s ease, border-radius 0.2s ease;
+}
+
+.project-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+/* titre d'un projet */
+.project-title {
+  font-weight: 500;
+  text-align: left;
+}
+
+/* année de réalisation d'un projet */
+.project-year {
+  font-size: 0.9rem;
+  color: #8a8a8a;
+  text-align: right;
+}
+
+/* ligne de séparation entre titre et année */
+.line-between {
+  flex: 1;
+  height: 1px;
+  background-color: #444;
+  margin: 0 10px;
+}
+
+/* div pour le bouton */
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
