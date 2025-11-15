@@ -1,78 +1,81 @@
-/* header principal fixe */
+/* header principal */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   height: 70px;
   backdrop-filter: blur(10px);
-  background: rgba(10, 10, 15, 0.7);
+  background-image: radial-gradient(circle at 30% 20%, rgba(14,14,24,0.79) 0%, rgba(10,10,14,0.995) 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-size: 200% 200%;
+  animation: gradientMove 20s ease infinite;
   z-index: 100;
   transition: all 0.3s ease;
 }
 
-/* conteneur du header */
+/* conteneur */
 .header-container {
-  max-width: 950px;
-  margin: 0 auto;
+  max-width: 900px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  padding: 0 80px;
   position: relative;
 }
 
-/* logo gauche */
+/***************************************************/
+
+
+/* logo de la page */
 .header-logo {
   position: absolute;
-  left: 20px;
+  left: 25px;
   top: 50%;
   transform: translateY(-50%);
-  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .header-logo img {
   width: 45px;
   height: 45px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15));
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* effet de brillance au survol */
 .header-logo img:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 6px rgba(100, 149, 237, 0.6));
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
 }
 
-/* navigation */
+/* liens de navigation */
 .nav {
   display: flex;
-  align-items: center;
+  gap: 40px;
   justify-content: center;
-  gap: 50px;
-  transition: transform 0.3s ease;
+  flex: 1;
 }
 
-/* style des liens de navigation */
 .nav-link {
   position: relative;
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   color: rgba(240, 240, 240, 0.8);
   cursor: pointer;
-  padding: 5px 0;
+  padding: 5px 15px;
   transition: color 0.25s ease, transform 0.15s ease;
 }
 
 .nav-link:hover {
-  color: #5caaff;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.nav-link:active {
-  transform: scale(0.95);
-}
-
+/* border sous le liens quand survolé */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -80,44 +83,63 @@
   bottom: -3px;
   width: 0%;
   height: 2px;
-  background: #5caaff;
+  background: rgba(255,255,255,0.5);
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-link:hover::after {
   width: 100%;
 }
 
-/* lien actif */
 .nav-link.active {
-  color: #5caaff;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 20px;
 }
 
-/* sélecteur de langue */
-.lang-switch {
+.nav-link.active::after {
+  width: 0%;
+}
+
+/* switch langue */
+.lang-minimal {
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: rgba(230, 230, 230, 0.85);
-  transition: all 0.3s ease;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.45);
+  user-select: none;
+  transition: color 0.25s ease;
 }
 
-.lang-switch:hover {
-  background: #5caaff;
-  color: #fff;
-  box-shadow: 0 0 8px rgba(92, 170, 255, 0.4);
+.lang-minimal span {
+  transition: color 0.25s ease;
 }
 
-/* menu mobile */
+.lang-minimal .active {
+  color: #ffffff;
+  filter: brightness(1.9);
+}
+
+.lang-minimal .separator {
+  color: rgba(255,255,255,0.25);
+}
+
+.lang-minimal:hover span:not(.active) {
+  color: rgba(255,255,255,0.75);
+}
+
+/***************************************************/
+
+
+/* menu pour mobile */
 .menu-toggle {
   display: none;
   position: absolute;
@@ -137,49 +159,93 @@
   transition: all 0.3s ease;
 }
 
-/* animation menu */
 .menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* responsive */
-@media (max-width: 560px) {
+/* couleur du header quand menu ouvert */
+.header.menu-open {
+  background: rgba(10, 10, 15, 0.995);
+  backdrop-filter: blur(0px);
+}
+
+/***************************************************/
+
+
+/* responsive mobile */
+@media (max-width: 700px) {
+
+  /* liens de navigation */
   .nav {
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 15, 0.995);
     flex-direction: column;
     align-items: center;
-    gap: 25px;
-    padding: 25px 0;
+    padding: 0 0 10px;
     transform: translateY(-150%);
     transition: transform 0.3s ease;
     z-index: 90;
+    gap: 20px;
   }
 
   .nav.open {
     transform: translateY(0);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  .nav-link.active {
+    width: calc(100% - 40%);
+    margin: 0 10%;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.95);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    filter: brightness(1.1);
+  }
+
+  /* switch langue */
+  .lang-minimal {
+    position: static;
+    width: 20%;
+    margin-top: 35px;
+    padding: 8px;
+    justify-content: center;
+    border-radius: 6px;
+  }
+
+  .lang-minimal:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.95);
+    filter: brightness(1.1);
   }
 
   .menu-toggle {
     display: flex;
-  }
-
-  .lang-switch {
-    position: static;
-    transform: none;
-    margin-top: 15px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .header-logo {
