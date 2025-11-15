@@ -6,6 +6,11 @@ import { useLanguage } from "../context/LanguageContext"
 const ContactLeft: React.FC = () => {
   const { t, language } = useLanguage()
 
+  /* sélection du CV selon la langue */
+  const cvFile = language === "fr"
+    ? "/cv_christoph_samuel_fr.pdf"
+    : "/cv_christoph_samuel_en.pdf"
+
   return (
     <div className="contact-left" role="region" aria-labelledby="contact-title">
       {/* zone disponibilite */}
@@ -55,10 +60,12 @@ const ContactLeft: React.FC = () => {
 
       {/* telechargement du cv */}
       <div className="contact-cv">
-        <a
-          href="/cv_christoph_samuel.pdf"
-          download
-          aria-label={language === "fr" ? "telecharger le CV de Samuel" : "download Samuel's CV"}
+        <a href={cvFile} download
+          aria-label={
+            language === "fr"
+              ? "telecharger le CV de Samuel"
+              : "download Samuel's CV"
+          }
         >
           {t("contact.cv")}
           <img src="/icons/logos/cv.png" alt={language === "fr" ? "icone cv" : "cv icon"} />

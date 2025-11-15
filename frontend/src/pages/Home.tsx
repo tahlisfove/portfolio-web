@@ -59,7 +59,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       <section className="hero" aria-label={t("home.hero.sectionAria")} role="region">
         <div className="hero-content">
           <div className="hero-photo" aria-label={t("home.hero.photoAria")}>
-            <img src="/photo_samuel.jpg" alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
+            <img src="/samuel.jpg" alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
           </div>
           <h1>{t("home.hero.name")}</h1>
           <h2>{t("home.hero.status")}</h2>
@@ -72,11 +72,11 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
 
           {/* réseaux sociaux */}
           <div className="contacts">
-            <a href="https://instagram.com/tahlisfovesamuelchristoph" target="_blank" rel="noopener noreferrer"
+            <a href="https://instagram.com/samuel.chrstph" target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir Instagram dans un nouvel onglet" : "open Instagram in new tab"}>
               <img src="/icons/logos/instagram.png" alt="Instagram" />
             </a>
-            <a href="https://linkedin.com/in/tahlisfove" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/samuelchristoph" target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir LinkedIn dans un nouvel onglet" : "open LinkedIn in new tab"}>
               <img src="/icons/logos/linkedin2.png" alt="LinkedIn" />
             </a>
