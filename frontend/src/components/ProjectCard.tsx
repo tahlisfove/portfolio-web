@@ -1,7 +1,9 @@
-import React from "react";
-import "./ProjectCard.css";
+/* carte d'un projet */
 
-/* interface du composant */
+import React from "react";
+import "../styles/ProjectCard.css";
+import "../styles/Buttons.css";
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -11,7 +13,6 @@ interface ProjectCardProps {
   highlight?: boolean;
 }
 
-/* composant d'affichage d'un projet */
 const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
@@ -21,38 +22,57 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   highlight,
 }) => {
   return (
-    <div className={`project-card ${highlight ? "highlight" : ""}`}>
-      {/* image du projet */}
-      {imageUrl && !highlight && (
-        <img src={imageUrl} alt={title} className="project-image" />
-      )}
+    /* carte d'un projet */
+    <article
+      className={`project-card ${highlight ? "highlight" : ""}`}
+      aria-labelledby={`project-title-${title}`}
+      aria-describedby={`project-desc-${title}`}
+      role="article"
+    >
 
-      {/* titre et description */}
-      <h3>{title}</h3>
-      <p>{description}</p>
+      {/* header avec logo et titre */}
+      <header className="project-header">
+        {imageUrl && (
+          <img src={imageUrl} alt={`logo du projet ${title}`} className="project-logo" loading="lazy"/>
+        )}
+        <h3 id={`project-title-${title}`}>{title}</h3>
+      </header>
 
-      {/* tags */}
+      {/* stack et tags */}
       {tags && tags.length > 0 && (
-        <div className="tags">
+        <div
+          className="project-tags"
+          role="list"
+          aria-label="technologies utilisées / used technologies"
+        >
           {tags.map((tag, idx) => (
-            <span key={idx} className="tag">
+            <span key={idx} className="tag" role="listitem">
               {tag}
             </span>
           ))}
         </div>
       )}
 
-      {/* bouton vers le code GitHub avec icône */}
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`project-btn ${highlight ? "highlight" : ""}`}
-      >
-        <img src="/icons/github.png" alt="GitHub" className="github-icon" />{" "}
-        code
-      </a>
-    </div>
+      {/* description */}
+      <p id={`project-desc-${title}`}>
+        {description}
+      </p>
+
+      {/* bouton code accessible */}
+      <div className="project-footer">
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-project-code"
+          aria-label={`voir le code du projet ${title} / view the code of project ${title}`}
+          role="button"
+        >
+          <img src="/icons/logos/github.png" alt="" aria-hidden="true" className="github-icon-btn"/>
+          CODE
+        </a>
+      </div>
+    </article>
   );
 };
 

@@ -29,8 +29,8 @@
     }
   },
   "projects": {
-    "title": "My Projects",
-    "intro": "Here you’ll find a selection of my technical projects, from web development to distributed systems, showcasing my programming and software design skills.",
+    "title": "My achievements",
+    "intro": "Here are some projects I completed during my studies and on my own. They showcase my technical skills and curiosity for various technologies, while highlighting my growth and ability to learn from each project.",
     "btnGithub": "See all my projects on GitHub"
   },
   "contact": {

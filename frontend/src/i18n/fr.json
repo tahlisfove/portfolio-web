@@ -29,8 +29,8 @@
     }
   },
   "projects": {
-    "title": "Mes Projets",
-    "intro": "Découvrez ici une sélection de mes projets techniques, allant du développement web aux systèmes distribués, illustrant mes compétences en programmation et conception logicielle.",
+    "title": "Mes réalisations",
+    "intro": "Voici quelques projets que j’ai réalisés au cours de mes études et de manière personnelle. Ils illustrent mes compétences techniques et ma curiosité pour différentes technologies, tout en montrant ma progression et ma capacité à apprendre au fil des projets.",
     "btnGithub": "Voir tous mes projets sur GitHub"
   },
   "contact": {
