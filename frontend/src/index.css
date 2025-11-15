@@ -7,7 +7,6 @@ body,
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: #0f0f17;
   color: #f5f5f5;
 }
@@ -25,17 +24,6 @@ p {
   font-size: 16px;
 }
 
-/* style global des liens */
-a {
-  color: #1e90ff;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: #63b3ff;
-}
-
 /* style global des boutons */
 button {
   font-family: inherit;
@@ -43,12 +31,6 @@ button {
   background: none;
   cursor: pointer;
   transition: transform 0.2s ease;
-}
-
-/* style pour la sélection de texte */
-::selection {
-  background-color: #1e90ff;
-  color: white;
 }
 
 /* transition des éléments */

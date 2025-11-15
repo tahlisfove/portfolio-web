@@ -22,7 +22,8 @@
 .btn-contact img {
   width: 16px;
   height: 12px;
-  margin-left: 10px;
+  margin-left: 4px;
+  margin-top: 1px;
 }
 
 /* icône bouton du cv */
@@ -57,7 +58,8 @@
 /* effet au survol */
 .btn-contact:hover,
 .btn-see-more:hover,
-.contact-cv a:hover {
+.contact-cv a:hover,
+.lang-switch:hover {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.06), 0 0 20px rgba(255, 255, 255, 0.10);
   background: rgba(255, 255, 255, 0.08);
   color: white;

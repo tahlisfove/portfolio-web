@@ -4,11 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: radial-gradient(circle at 30% 20%, #0e0e18 0%, #0a0a0e 100%);
+  backdrop-filter: blur(10px);
+  background-color: rgba(10, 10, 15, 0.8);
+  background-image: radial-gradient(circle at 30% 20%, rgba(14,14,24,0.79) 0%, rgba(10,10,14,0.995) 100%);
   background-size: 200% 200%;
   animation: gradientMove 20s ease infinite;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 10px;
+  padding: 30px 0;
+  z-index: 50;
 }
 
 /* animation des images */
@@ -24,7 +27,7 @@
   display: flex;
   justify-content: center;
   gap: 25px;
-  padding: 30px 0 20px;
+  padding: 10px 0 20px;
 }
 
 /* liens et bouton email */
@@ -35,6 +38,8 @@
   cursor: pointer;
   padding: 0;
   transition: transform 0.2s ease, filter 0.3s ease;
+  width: 32px;
+  height: 32px;
 }
 
 /* style des images des logos */
@@ -58,7 +63,6 @@
 .footer-text {
   width: 100%;
   text-align: center;
-  padding: 0 0 10px;
 }
 
 .footer-text p,
