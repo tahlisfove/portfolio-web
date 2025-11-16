@@ -28,14 +28,12 @@ router.post("/", async (req, res) => {
     /* envoi du mail */
     await sgMail.send({
       to: CONTACT_RECEIVER,
-      from: CONTACT_RECEIVER,
+      from: "Portfolio Contact <no-reply@sendgrid.net>",
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #4A90E2;">📩 Nouveau message depuis ton portfolio</h2>
-
-          <p>Tu as reçu un nouveau message via ton formulaire de contact :</p>
+          <h2>Nouveau message</h2>
 
           <div style="margin-top: 20px; padding: 15px; background: #f7f7f7; border-radius: 8px;">
             <p><strong>Nom :</strong> ${name}</p>
@@ -44,14 +42,14 @@ router.post("/", async (req, res) => {
             <p><strong>Sujet :</strong> ${subject}</p>
           </div>
 
-          <h3 style="margin-top: 30px;">💬 Message :</h3>
+          <h3 style="margin-top: 30px;">Message :</h3>
           <p style="white-space: pre-line; line-height: 1.6;">
             ${message}
           </p>
 
           <hr style="margin-top: 30px;">
           <p style="font-size: 12px; color: #999;">
-            Email envoyé automatiquement depuis ton portfolio.
+            Email envoyé automatiquement depuis mon portfolio.
           </p>
         </div>
       `,
