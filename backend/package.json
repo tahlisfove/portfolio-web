@@ -12,6 +12,9 @@
     "prisma:generate": "npx prisma generate",
     "prisma:migrate": "npx prisma migrate dev --name init"
   },
+  "prisma": {
+    "seed": "ts-node ./src/prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
