@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 const router = Router();
 
-/* route post pour l’envoi du formulaire de contact */
+/* route POST pour l’envoi du formulaire */
 router.post("/", async (req, res) => {
   const { name, email, phone, subject, message } = req.body;
 
@@ -12,31 +12,26 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "Tous les champs sont obligatoires" });
   }
 
-  /* limite de longueur du message */
   if (message.length > 2000) {
-    return res
-      .status(400)
-      .json({ error: "Le message ne peut pas dépasser 2000 caractères." });
+    return res.status(400).json({ error: "Le message ne peut pas dépasser 2000 caractères." });
   }
 
-  /* vérification de la configuration smtp */
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_RECEIVER } =
-    process.env;
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_RECEIVER } = process.env;
 
   if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !CONTACT_RECEIVER) {
     return res.status(500).json({ error: "Erreur de configuration du serveur" });
   }
 
   try {
-    /* configuration du transporteur smtp */
+    /* configuration du transporteur SMTP avec timeout */
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port: Number(SMTP_PORT),
-      secure: true,
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
-      },
+      secure: Number(SMTP_PORT) === 465,
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     });
 
     /* envoi du mail */
@@ -50,14 +45,15 @@ Email: ${email}
 Téléphone: ${phone}
 Sujet: ${subject}
 
-Message:${message}
-`,
+Message:
+${message}
+      `,
     });
 
-    /* réponse en cas de succès */
+    /* succès */
     res.json({ success: true });
-  } catch {
-    /* erreur d’envoi du mail */
+  } catch (err: any) {
+    console.error("Erreur Nodemailer:", err);
     res.status(500).json({ error: "Erreur lors de l'envoi du mail" });
   }
 });
