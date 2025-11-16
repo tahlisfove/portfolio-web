@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
   }, [name, email, phone, subject, message, submitted, t])
 
   /* backend contact */
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API_URL = "https://portfolio-api-kpk6.onrender.com";
 
   /* gestion du clic sur envoyer */
   const handleSubmit = async (e: React.FormEvent) => {
