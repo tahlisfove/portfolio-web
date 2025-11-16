@@ -28,8 +28,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
   const [loading, setLoading] = useState(true);
 
   /* backend db */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string);
-  console.log("API_URL:", API_URL);
+  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "http://localhost:5000";
 
   /* récupération des projets depuis l'api */
   useEffect(() => {
