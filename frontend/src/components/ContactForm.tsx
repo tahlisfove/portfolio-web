@@ -57,6 +57,9 @@ const ContactForm: React.FC = () => {
     setErrors([...new Set(newErrors)])
   }, [name, email, phone, subject, message, submitted, t])
 
+  /* backend contact */
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
   /* gestion du clic sur envoyer */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -86,7 +89,7 @@ const ContactForm: React.FC = () => {
 
     /* tentative denvoi au serveur */
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+      const response = await fetch(`${API_URL}/api/contact`, {        
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, subject, message }),

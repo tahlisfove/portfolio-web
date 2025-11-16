@@ -23,10 +23,13 @@ const Projects: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const { language, t } = useLanguage();
 
+  /* backend db */
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/projects`);
+        const res = await fetch(`${API_URL}/api/projects`);
         const data = await res.json();
         setProjects(data);
       } catch (err) {
@@ -37,7 +40,7 @@ const Projects: React.FC = () => {
     };
 
     fetchProjects();
-  }, []);
+  }, [API_URL]);
 
   // animation d'apparition
   useEffect(() => {

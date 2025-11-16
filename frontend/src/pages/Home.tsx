@@ -27,11 +27,14 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
+  /* backend db */
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
   /* récupération des projets depuis l'api */
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/projects`);
+        const res = await fetch(`${API_URL}/api/projects`);
         const data: Project[] = await res.json();
         setProjects(data);
       } catch (err) {
@@ -41,7 +44,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       }
     };
     fetchProjects();
-  }, []);
+  }, [API_URL]);
 
   /* tri des projets pour affichage */
   const projectOrder = [
