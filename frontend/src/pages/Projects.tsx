@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("/api/projects");
+        const res = await fetch("https://portfolio-api-kpk6.onrender.com/api/projects")
         const data = await res.json();
         setProjects(data);
       } catch (err) {
