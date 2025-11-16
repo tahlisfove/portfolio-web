@@ -31,7 +31,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("https://portfolio-api-kpk6.onrender.com/api/projects");
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/projects`);
         const data: Project[] = await res.json();
         setProjects(data);
       } catch (err) {

@@ -86,11 +86,11 @@ const ContactForm: React.FC = () => {
 
     /* tentative denvoi au serveur */
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, subject, message }),
-      })
+      });
       const data = await response.json()
 
       /* si erreur renvoyee par le serveur */
