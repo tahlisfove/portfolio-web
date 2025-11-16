@@ -25,19 +25,35 @@ router.post("/", async (req, res) => {
   if (!CONTACT_RECEIVER) return res.status(500).json({ error: "Erreur configuration serveur" });
 
   try {
-    /* envoi du mail via SendGrid */
+    /* envoi du mail */
     await sgMail.send({
       to: CONTACT_RECEIVER,
       from: CONTACT_RECEIVER,
+      replyTo: email,
       subject: `[Portfolio] ${subject}`,
-      text: `
-Nom: ${name}
-Email: ${email}
-Téléphone: ${phone}
-Sujet: ${subject}
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+          <h2 style="color: #4A90E2;">📩 Nouveau message depuis ton portfolio</h2>
 
-Message:
-${message}
+          <p>Tu as reçu un nouveau message via ton formulaire de contact :</p>
+
+          <div style="margin-top: 20px; padding: 15px; background: #f7f7f7; border-radius: 8px;">
+            <p><strong>Nom :</strong> ${name}</p>
+            <p><strong>Email :</strong> ${email}</p>
+            <p><strong>Téléphone :</strong> ${phone}</p>
+            <p><strong>Sujet :</strong> ${subject}</p>
+          </div>
+
+          <h3 style="margin-top: 30px;">💬 Message :</h3>
+          <p style="white-space: pre-line; line-height: 1.6;">
+            ${message}
+          </p>
+
+          <hr style="margin-top: 30px;">
+          <p style="font-size: 12px; color: #999;">
+            Email envoyé automatiquement depuis ton portfolio.
+          </p>
+        </div>
       `,
     });
 
