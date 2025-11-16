@@ -1,6 +1,6 @@
-/* pour que TypeScript détecte REACT_APP_API_URL */
+/* pour que TypeScript détecte VITE_API_URL */
 declare const process: {
   env: {
-    REACT_APP_API_URL?: string;
+    VITE_API_URL?: string;
   };
 };
