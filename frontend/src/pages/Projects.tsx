@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
   const { language, t } = useLanguage();
 
   /* backend db */
-  const API_URL = "https://portfolio-api-kpk6.onrender.com"
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchProjects = async () => {
