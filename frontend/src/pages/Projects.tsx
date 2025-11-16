@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
   const { language, t } = useLanguage();
 
   /* backend db */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "";
+  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "TTTTTTTT";
 
   useEffect(() => {
     const fetchProjects = async () => {

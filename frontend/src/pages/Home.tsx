@@ -28,7 +28,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
   const [loading, setLoading] = useState(true);
 
   /* backend db */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "";
+  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "TTTTTTTT";
   console.log("API_URL:", API_URL);
 
   /* récupération des projets depuis l'api */
