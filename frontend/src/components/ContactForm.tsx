@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
   }, [name, email, phone, subject, message, submitted, t])
 
   /* backend contact */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "TTTTTTTT";
+  const API_URL: string = (import.meta.env.VITE_API_URL as string);
 
   /* gestion du clic sur envoyer */
   const handleSubmit = async (e: React.FormEvent) => {
