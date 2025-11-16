@@ -8,6 +8,9 @@ import contactRouter from "./routes/contact";
 
 const app = express();
 
+/* render passe les requêtes via un proxy */
+app.set("trust proxy", 1);
+
 /* middlewares */
 app.use(cors());
 app.use(express.json());

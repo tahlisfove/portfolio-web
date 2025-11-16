@@ -13,7 +13,9 @@ router.post("/", async (req, res) => {
   }
 
   if (message.length > 2000) {
-    return res.status(400).json({ error: "Le message ne peut pas dépasser 2000 caractères." });
+    return res
+      .status(400)
+      .json({ error: "Le message ne peut pas dépasser 2000 caractères." });
   }
 
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_RECEIVER } = process.env;
@@ -23,7 +25,7 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    /* configuration du transporteur SMTP avec timeout */
+    /* configuration SMTP */
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port: Number(SMTP_PORT),
