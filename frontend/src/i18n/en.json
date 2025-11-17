@@ -22,7 +22,7 @@
     "projects": {
       "sectionTitle": "Projects",
       "seeMoreBtn": "See More",
-      "loading": "Loading projects...",
+      "loading": "Loading projects",
       "years": {
         "ongoing": "ongoing..."
       }

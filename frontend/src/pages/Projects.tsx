@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import Loader from "../components/Loader";
 import { useLanguage } from "../context/LanguageContext";
 import "../styles/Projects.css";
 
@@ -62,7 +63,8 @@ const Projects: React.FC = () => {
     return () => observer.disconnect();
   }, [loading]);
 
-  if (loading) return null;
+  {/* chargement des projets si backend off */}
+  if (loading) return <Loader text={t("projects.loading")} />;
 
   const githubProjects = projects.filter(
     p => p.title !== "Plus de mes travaux sur GitHub"

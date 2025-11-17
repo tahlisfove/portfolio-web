@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import Loader from "../components/Loader";
 import "../styles/Home.css";
 import "../styles/Buttons.css";
 
@@ -138,7 +139,10 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       {/* section projets mis en avant */}
       <section className="featured-projects" aria-label={t("home.projects.sectionAria")} role="region">
         <h2 id="projects-title">{t("home.projects.sectionTitle")}</h2>
-        {loading && <p className="loading">{t("home.projects.loading")}</p>}
+
+        {/* chargement des projets si backend off */}
+        {loading && <Loader text={t("home.projects.loading")} />}
+
         <div className="projects-line">
           {projectOrder.map((proj, index) => (
             <div key={proj.id} className="project-item" aria-label={`${language === "fr" ? proj.title : proj.translations?.title_en || proj.title}, ${yearLabels[index]}`}>
