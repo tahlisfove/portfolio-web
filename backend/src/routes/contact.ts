@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 
   /* validation du numéro de téléphone français uniquement */
   const phoneRegexFR = /^0\d{9}$/;
-  if (!phoneRegexFR.test(phone)) {
+  if (phone && !phoneRegexFR.test(phone)) {
     return res.status(400).json({ error: "Numéro de téléphone invalide (FR uniquement)" });
   }
 
