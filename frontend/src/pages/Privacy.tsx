@@ -40,8 +40,8 @@ const Privacy: React.FC = () => {
         <h2 id="contact-infos-title">{t("privacy.contactInfos")}</h2>
         <p>
           {t("privacy.contactTextStart")}
-          <a href="mailto:gdtsamuelchrist@gmail.com" aria-label={t("privacy.contactEmail")}>
-            gdtsamuelchrist@gmail.com
+          <a href="mailto:contact@samuel-christoph.fr" aria-label={t("privacy.contactEmail")}>
+            contact@samuel-christoph.fr
           </a>
           {t("privacy.contactTextMiddle")}
           <a

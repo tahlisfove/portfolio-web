@@ -28,10 +28,10 @@ const ContactLeft: React.FC = () => {
           <img src="/icons/logos/contact.png" alt={language === "fr" ? "email" : "email"} />
           <a
             className="contact-link"
-            href="mailto:gdtsamuelchrist@gmail.com"
+            href="mailto:contact@samuel-christoph.fr"
             aria-label={language === "fr" ? "envoyer un email à Samuel" : "send email to Samuel"}
           >
-            gdtsamuelchrist@gmail.com
+            contact@samuel-christoph.fr 
           </a>
         </div>
 
