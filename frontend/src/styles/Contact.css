@@ -261,10 +261,6 @@
     font-size: 24px;
   }
 
-  .availability-text {
-    font-size: 11px;
-  }
-
   .contact-left p,
   .contact-left a,
   .contact-form input,
@@ -272,7 +268,7 @@
     font-size: 13px;
   }
 
-  .contact-right h2{
-    margin-top: 50px;
+  .line-between-intro-projects {
+    margin: 10px 0 0 0;
   }
 }
