@@ -248,6 +248,10 @@ section:last-of-type::after {
     font-size: 18px;
   }
 
+  .availability-text {
+    font-size: 11px;
+  }
+
   .about p {
     text-align: left;
     font-size: 13px;
@@ -268,12 +272,20 @@ section:last-of-type::after {
     height: 130px;
   }
 
+  .stack-item span {
+    font-size: 15px;
+  }
+
   .project-title {
     font-size: 13px;
   }
 
   .featured-projects {
     padding-bottom: 50px;
+  }
+
+  .project-item {
+    padding: 5px 10px;
   }
 
   .btn-see-more {

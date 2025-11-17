@@ -189,17 +189,15 @@
 /***************************************************/
 
 
-/* responsive tablettes */
+/* responsive tablette */
 @media (max-width: 900px) {
 
-  /* page de contact */
   .contact-page {
     flex-direction: column;
     align-items: center;
     padding: 40px 60px 40px;
   }
 
-  /* aligner a droite les informations */
   .contact-left {
     position: static;
     align-items: center;
@@ -217,13 +215,12 @@
     justify-content: center;
   }
   
-  /* bouton envoyer */
   .animated-submit-btn {
     width: 35%;
   }
 
   .availability-contact {
-    margin-top: 40px;
+    margin-top: 60px;
   }
 
   .contact-info div {
@@ -232,13 +229,11 @@
     gap: 10px;
   }
 
-  /* taille des titres */
   .contact-left h1,
   .contact-right h2 {
     font-size: 28px;
   }
 
-  /* taille des textes */
   .contact-left p,
   .contact-left a,
   .contact-form input,
@@ -246,7 +241,6 @@
     font-size: 14px;
   }
 
-  /* espacement titre formulaire */
   .contact-form {
     margin-top: 25px;
   }
@@ -258,18 +252,19 @@
 /* responsive mobiles */
 @media (max-width: 700px) {
 
-  /* page contact */
   .contact-page {
-    padding: 0 15px 40px;
+    padding: 0 10px 35px;
   }
 
-  /* taille des titres */
   .contact-left h1,
   .contact-right h2 {
     font-size: 24px;
   }
 
-  /* taille des textes */
+  .availability-text {
+    font-size: 11px;
+  }
+
   .contact-left p,
   .contact-left a,
   .contact-form input,

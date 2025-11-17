@@ -124,6 +124,10 @@
   }
 
   .footer-text p {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .privacy-link {
+    font-size: 10px;
   }
 }

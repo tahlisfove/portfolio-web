@@ -31,7 +31,7 @@
 /* logo de la page */
 .header-logo {
   position: absolute;
-  left: 45px;
+  left: 25px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -105,7 +105,7 @@
 /* switch langue */
 .lang-minimal {
   position: absolute;
-  right: 45px;
+  right: 30px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -143,7 +143,7 @@
 .menu-toggle {
   display: none;
   position: absolute;
-  right: 20px;
+  right: 45px;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
@@ -230,8 +230,8 @@
 
   .lang-minimal {
     position: static;
-    width: 30%;
-    margin-top: 16px;
+    width: 35%;
+    margin-top: 15px;
     padding: 8px;
     justify-content: center;
     border-radius: 6px;
