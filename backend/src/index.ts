@@ -18,7 +18,7 @@ app.use(express.json());
 /* limiteur de requêtes pour éviter le spam */
 const contactLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
-  max: 5,
+  max: 10,
   message: "Trop de demandes. Veuillez réessayer plus tard.",
 });
 
