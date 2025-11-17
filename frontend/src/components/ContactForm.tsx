@@ -33,7 +33,10 @@ const ContactForm: React.FC = () => {
 
   /* fonctions de validation */
   const validateEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
-  const validatePhone = (p: string) => /^\d+$/.test(p)
+  const validatePhone = (p: string) => {
+    if (!p) return true;
+    return /^0\d{9}$/.test(p);
+  }
 
   /* fonction si un champ a une erreur */
   const hasError = (field: string) => {
@@ -50,9 +53,9 @@ const ContactForm: React.FC = () => {
   useEffect(() => {
     if (!submitted) return
     const newErrors: string[] = []
-    if (!name || !email || !phone || !subject || !message) newErrors.push(t("contact.fieldsRequired"))
+    if (!name || !email || !subject || !message) newErrors.push(t("contact.fieldsRequired"))
     if (email && !validateEmail(email)) newErrors.push(t("contact.invalidEmail"))
-    if (phone && !validatePhone(phone)) newErrors.push(t("contact.invalidPhone"))
+    if (!validatePhone(phone)) newErrors.push(t("contact.invalidPhone"))
     if (message.length > MAX_MESSAGE_LENGTH) newErrors.push(t("contact.messageTooLong"))
     setErrors([...new Set(newErrors)])
   }, [name, email, phone, subject, message, submitted, t])
@@ -68,12 +71,10 @@ const ContactForm: React.FC = () => {
     const validationErrors: string[] = []
 
     /* validations avant envoi */
-    if (!name || !email || !phone || !subject || !message)
-      validationErrors.push(t("contact.fieldsRequired"))
+    if (!name || !email || !subject || !message) validationErrors.push(t("contact.fieldsRequired"))
     if (email && !validateEmail(email)) validationErrors.push(t("contact.invalidEmail"))
-    if (phone && !validatePhone(phone)) validationErrors.push(t("contact.invalidPhone"))
-    if (message.length > MAX_MESSAGE_LENGTH)
-      validationErrors.push(t("contact.messageTooLong"))
+    if (!validatePhone(phone)) validationErrors.push(t("contact.invalidPhone"))
+    if (message.length > MAX_MESSAGE_LENGTH) validationErrors.push(t("contact.messageTooLong"))
 
     /* si erreurs on arrete */
     if (validationErrors.length > 0) {
@@ -156,7 +157,7 @@ const ContactForm: React.FC = () => {
         onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 20))}
         className={hasError("phone") ? "error-input" : ""}
         aria-label={t("contact.phone")}
-        aria-required="true"
+        aria-required="false"
         aria-invalid={hasError("phone")}
       />
 
@@ -182,6 +183,10 @@ const ContactForm: React.FC = () => {
           aria-label={t("contact.message")}
           aria-required="true"
           aria-invalid={hasError("message")}
+          spellCheck={true}
+          lang={language === "fr" ? "fr" : "en"}
+          autoCorrect="on"
+          autoCapitalize="sentences"
         />
         <div aria-live="polite" className="char-counter">
           {message.length} / {MAX_MESSAGE_LENGTH}

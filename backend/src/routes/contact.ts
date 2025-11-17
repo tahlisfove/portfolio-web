@@ -15,20 +15,27 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "Tous les champs sont obligatoires" });
   }
 
+  /* validation du numéro de téléphone français uniquement */
+  const phoneRegexFR = /^0\d{9}$/;
+  if (!phoneRegexFR.test(phone)) {
+    return res.status(400).json({ error: "Numéro de téléphone invalide (FR uniquement)" });
+  }
+
   /* limite de longueur du message */
   if (message.length > 2000) {
     return res.status(400).json({ error: "Le message ne peut pas dépasser 2000 caractères." });
   }
 
-  /* récupération de l'email destinataire */
+  /* récupération de l'email destinataire et expéditeur */
   const CONTACT_RECEIVER = process.env.CONTACT_RECEIVER;
-  if (!CONTACT_RECEIVER) return res.status(500).json({ error: "Erreur configuration serveur" });
+  const CONTACT_SENDER = process.env.CONTACT_SENDER;
+  if (!CONTACT_RECEIVER || !CONTACT_SENDER) return res.status(500).json({ error: "Erreur configuration serveur" });
 
   try {
     /* envoi du mail */
     await sgMail.send({
       to: CONTACT_RECEIVER,
-      from: "Portfolio Contact <no-reply@samuel-christoph.fr>",
+      from: `Portfolio Contact <${CONTACT_SENDER}>`,
       replyTo: email,
       subject: `[Portfolio Contact] ${subject}`,
       html: `
