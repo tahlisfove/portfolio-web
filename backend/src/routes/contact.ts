@@ -30,20 +30,20 @@ router.post("/", async (req, res) => {
       to: CONTACT_RECEIVER,
       from: "Portfolio Contact <no-reply@samuel-christoph.fr>",
       replyTo: email,
-      subject: `[Portfolio] ${subject}`,
+      subject: `[Portfolio Contact] ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2>Nouveau message</h2>
+          <h2 style="margin-top: 0;">Nouveau message</h2>
 
-          <div style="margin-top: 20px; padding: 15px; background: #f7f7f7; border-radius: 8px;">
+          <div style="margin-top: 30px; padding: 15px; background: #f7f7f7; border-radius: 8px;">
             <p><strong>Nom :</strong> ${name}</p>
             <p><strong>Email :</strong> ${email}</p>
             <p><strong>Téléphone :</strong> ${phone}</p>
             <p><strong>Sujet :</strong> ${subject}</p>
           </div>
 
-          <h3 style="margin-top: 30px;">Message :</h3>
-          <p style="white-space: pre-line; line-height: 1.6;">
+          <h3 style="margin-top: 20px;">Message :</h3>
+          <p style="line-height: 1.6;">
             ${message}
           </p>
 
