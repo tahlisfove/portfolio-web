@@ -97,7 +97,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
                      ? `logo de ${tech}`
                      : `${tech} logo`
                  }>
-              <img src={`/icons/stack/${tech}.svg`} alt={tech} />
+              <img src={`/icons/stack/${tech}.png`} alt={tech} />
               <span>{tech.charAt(0).toUpperCase() + tech.slice(1)}</span>
             </div>
           ))}
