@@ -104,7 +104,7 @@
 
 
 /* responsive mobile */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
   .project-card {
     text-align: center;
@@ -146,9 +146,5 @@
     font-size: 12px;
     padding: 3px 10px;
     margin: 3px 6px;
-  }
-
-  .btn-project-code {
-    padding: 0 15px;
   }
 }

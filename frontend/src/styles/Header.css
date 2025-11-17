@@ -31,7 +31,7 @@
 /* logo de la page */
 .header-logo {
   position: absolute;
-  left: 25px;
+  left: 45px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -105,7 +105,7 @@
 /* switch langue */
 .lang-minimal {
   position: absolute;
-  right: 25px;
+  right: 45px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -192,7 +192,6 @@
     background: rgba(10, 10, 15, 0.995);
     flex-direction: column;
     align-items: center;
-    padding: 0 0 10px;
     transform: translateY(-150%);
     transition: transform 0.3s ease;
     z-index: 90;
@@ -202,11 +201,12 @@
   .nav.open {
     transform: translateY(0);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 15px;
   }
 
   .nav-link {
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     text-align: center;
@@ -228,19 +228,15 @@
     filter: brightness(1.1);
   }
 
-  /* switch langue */
   .lang-minimal {
     position: static;
-    width: 25%;
-    margin-top: 35px;
+    width: 30%;
+    margin-top: 16px;
     padding: 8px;
     justify-content: center;
     border-radius: 6px;
-  }
-
-  .lang-minimal:hover {
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.95);
+    background: #ffffff0d;
+    color: #fffffff2;
     filter: brightness(1.1);
   }
 

@@ -51,7 +51,7 @@
 
 /* retirer la séparation pour la dernière section */
 .privacy-section:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .privacy-section:last-of-type::after {
@@ -66,4 +66,23 @@
 
 .privacy-page a:hover {
   text-decoration: underline;
+}
+
+/***************************************************/
+
+
+/* responsive mobile */
+@media (max-width: 700px) {
+
+  .privacy-page {
+    padding: 45px 0 0px 0px;
+  }
+
+  .privacy-section {
+    padding-bottom: 20px;
+  }
+
+  .privacy-section::after {
+    background: none;
+  }
 }

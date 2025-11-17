@@ -20,6 +20,11 @@
   transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
+/* bouton accédant au code des projets */
+.btn-project-code {
+  padding: 5px 15px;
+}
+
 /* icônes contact accueil */
 .btn-contact img {
   width: 16px;

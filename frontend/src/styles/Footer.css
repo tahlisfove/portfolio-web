@@ -27,7 +27,7 @@
   display: flex;
   justify-content: center;
   gap: 25px;
-  padding: 10px 0 20px;
+  padding: 5px 0 20px;
 }
 
 /* liens et bouton email */
@@ -107,7 +107,12 @@
 
 
 /* responsive mobile */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
+  .footer {
+    padding: 20px 0;
+  }
+
   .footer-logos {
     gap: 18px;
     padding: 18px 0 10px 0;

@@ -223,7 +223,7 @@
   }
 
   .availability-contact {
-    margin-top: 70px;
+    margin-top: 40px;
   }
 
   .contact-info div {
@@ -256,7 +256,7 @@
 
 
 /* responsive mobiles */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
   /* page contact */
   .contact-page {
