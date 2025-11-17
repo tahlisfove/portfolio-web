@@ -29,11 +29,10 @@ const Projects: React.FC = () => {
     return () => observer.disconnect();
   }, [projects]);
 
-  /* chargement des projets si backend off */
-  if (showLoader) return <Loader text={t("home.projects.loading")} />;
-
   return (
     <div className="projects-container" role="main" aria-label={t("projects.sectionAria")}>
+      
+      {/* introduction */}
       <div className="projects-intro" role="region" aria-label={t("projects.introAria")}>
         <h2>{t("projects.title")}</h2>
         <p>{t("projects.intro")}</p>
@@ -41,6 +40,11 @@ const Projects: React.FC = () => {
         {/* ligne séparatrice */}
         <div className="line-between-intro-projects" aria-hidden="true"></div>
       </div>
+
+      {/* loader si aucun projet n'est encore chargé */}
+      {projects.length === 0 && showLoader && (
+        <Loader text={t("home.projects.loading")} />
+      )}
 
       {/* liste des projets */}
       {projects
@@ -57,19 +61,19 @@ const Projects: React.FC = () => {
           />
         ))}
 
-        {/* bouton profil GitHub */}
-        {projects.length > 0 && (
-          <div className="github-profile-card" role="region" aria-label={t("projects.btnGithub")}>
-            <a
-              href="https://github.com/tahlisfove"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-github-profile"
-            >
-              {t("projects.btnGithub")}
-            </a>
-          </div>
-        )}
+      {/* bouton profil GitHub */}
+      {projects.length > 0 && (
+        <div className="github-profile-card" role="region" aria-label={t("projects.btnGithub")}>
+          <a
+            href="https://github.com/tahlisfove"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-github-profile"
+          >
+            {t("projects.btnGithub")}
+          </a>
+        </div>
+      )}
     </div>
   );
 };

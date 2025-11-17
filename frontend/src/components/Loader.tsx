@@ -10,8 +10,8 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({ text }) => {
   return (
     <div className="loading-wrapper">
-      {text && <p>{text}</p>}
       <div className="loader">
+        {text && <p>{text}</p>}
         <span>.</span>
         <span>.</span>
         <span>.</span>
