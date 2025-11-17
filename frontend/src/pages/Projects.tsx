@@ -1,51 +1,19 @@
 /* page projet */
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useProjects, type Project } from "../hooks/importProjects";
+import { useLanguage } from "../context/LanguageContext";
 import ProjectCard from "../components/ProjectCard";
 import Loader from "../components/Loader";
-import { useLanguage } from "../context/LanguageContext";
 import "../styles/Projects.css";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  translations?: {
-    title_en?: string;
-    description_en?: string;
-  };
-  link: string;
-  imageUrl?: string;
-  tags?: string[];
-}
-
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
   const { language, t } = useLanguage();
+  const { projects, showLoader } = useProjects();
 
-  /* backend db */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "http://localhost:5000";
-
+  /* animation d'apparition des projets */
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch(`${API_URL}/api/projects`);
-        const data = await res.json();
-        setProjects(data);
-      } catch (err) {
-        console.error("Erreur :", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProjects();
-  }, [API_URL]);
-
-  // animation d'apparition
-  useEffect(() => {
-    if (loading) return;
+    if (!projects.length) return;
 
     const observer = new IntersectionObserver(
       entries => {
@@ -56,22 +24,13 @@ const Projects: React.FC = () => {
       { threshold: 0.2 }
     );
 
-    document.querySelectorAll(".project-card").forEach(card => {
-      observer.observe(card);
-    });
+    document.querySelectorAll(".project-card").forEach(card => observer.observe(card));
 
     return () => observer.disconnect();
-  }, [loading]);
+  }, [projects]);
 
-  {/* chargement des projets si backend off */}
-  if (loading) return <Loader text={t("projects.loading")} />;
-
-  const githubProjects = projects.filter(
-    p => p.title !== "Plus de mes travaux sur GitHub"
-  );
-  const githubProfile = projects.find(
-    p => p.title === "Plus de mes travaux sur GitHub"
-  );
+  /* chargement des projets si backend off */
+  if (showLoader) return <Loader text={t("home.projects.loading")} />;
 
   return (
     <div className="projects-container" role="main" aria-label={t("projects.sectionAria")}>
@@ -84,22 +43,14 @@ const Projects: React.FC = () => {
       </div>
 
       {/* liste des projets */}
-      {githubProjects
+      {projects
         .slice()
         .reverse()
-        .map(proj => (
+        .map((proj: Project) => (
           <ProjectCard
             key={proj.id}
-            title={
-              language === "fr"
-                ? proj.title
-                : proj.translations?.title_en || proj.title
-            }
-            description={
-              language === "fr"
-                ? proj.description
-                : proj.translations?.description_en || proj.description
-            }
+            title={language === "fr" ? proj.title : proj.translations?.title_en || proj.title}
+            description={language === "fr" ? proj.description : proj.translations?.description_en || proj.description}
             link={proj.link}
             imageUrl={proj.imageUrl}
             tags={proj.tags}
@@ -107,18 +58,16 @@ const Projects: React.FC = () => {
         ))}
 
       {/* bouton profil GitHub */}
-      {githubProfile && (
-        <div className="github-profile-card" role="region" aria-label={t("projects.githubBtnAria")}>
-          <a
-            href={githubProfile.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-github-profile"
-          >
-            {t("projects.btnGithub")}
-          </a>
-        </div>
-      )}
+      <div className="github-profile-card" role="region" aria-label={t("projects.btnGithub")}>
+        <a
+          href="https://github.com/tahlisfove"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-github-profile"
+        >
+          {t("projects.btnGithub")}
+        </a>
+      </div>
     </div>
   );
 };

@@ -1,23 +1,11 @@
 /* page home */
 
-import React, { useEffect, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { useProjects, type Project } from "../hooks/importProjects";
 import Loader from "../components/Loader";
 import "../styles/Home.css";
 import "../styles/Buttons.css";
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  translations?: {
-    title_en?: string;
-    description_en?: string;
-  };
-  link: string;
-  imageUrl?: string;
-  tags?: string[];
-}
 
 interface HomeProps {
   setPage: (page: "home" | "projects" | "contact") => void;
@@ -25,27 +13,7 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ setPage }) => {
   const { language, t } = useLanguage();
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  /* backend db */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "http://localhost:5000";
-
-  /* récupération des projets depuis l'api */
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const res = await fetch(`${API_URL}/api/projects`);
-        const data: Project[] = await res.json();
-        setProjects(data);
-      } catch (err) {
-        console.error("erreur récupération projets:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProjects();
-  }, [API_URL]);
+  const { projects, showLoader } = useProjects();
 
   /* tri des projets pour affichage */
   const projectOrder = [
@@ -141,7 +109,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
         <h2 id="projects-title">{t("home.projects.sectionTitle")}</h2>
 
         {/* chargement des projets si backend off */}
-        {loading && <Loader text={t("home.projects.loading")} />}
+        {showLoader && <Loader text={t("home.projects.loading")} />}
 
         <div className="projects-line">
           {projectOrder.map((proj, index) => (

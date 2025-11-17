@@ -81,17 +81,6 @@ async function main() {
       imageUrl: "/icons/projects/bar.png",
       link: "https://github.com/tahlisfove/UPPA/tree/main/licence_informatique/l3_informatique/systemes_distribuees",
       tags: ["C", "Java", "TCP/UDP", "RMI", "IPC", "Synchronization"]
-    },
-    {
-      title: "Plus de mes travaux sur GitHub",
-      description: "Découvrez tous mes projets et réalisations directement sur mon GitHub.",
-      translations: {
-        title_en: "More of my work on GitHub",
-        description_en: "Discover all my projects and work directly on my GitHub."
-      },
-      imageUrl: "",
-      link: "https://github.com/tahlisfove",
-      tags: []
     }
   ];
 
