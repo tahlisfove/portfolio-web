@@ -95,12 +95,28 @@ async function main() {
     }
   ];
 
-  // supprime les projets existants pour éviter doublons
-  await prisma.project.deleteMany({});
-
-  // insère les projets un à un
+  /* insertion des projets dans la base de données */
   for (const project of projects) {
-    await prisma.project.create({ data: project });
+    // vérifie si le projet existe déjà via le lien
+    const existing = await prisma.project.findUnique({ where: { link: project.link } });
+
+    if (existing) {
+      // update si le projet existe
+      await prisma.project.update({
+        where: { id: existing.id },
+        data: project,
+      });
+    } else {
+      // cherche le plus petit ID libre
+      const usedIds = (await prisma.project.findMany({ select: { id: true } })).map(p => p.id);
+      let idToUse = 1;
+      while (usedIds.includes(idToUse)) idToUse++;
+
+      // crée le projet avec l'ID disponible
+      await prisma.project.create({
+        data: { ...project, id: idToUse },
+      });
+    }
   }
 }
 
