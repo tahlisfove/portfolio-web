@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
   const { name, email, phone, subject, message } = req.body;
 
   /* validation des champs requis */
-  if (!name || !email || !phone || !subject || !message) {
+  if (!name || !email || !subject || !message) {
     return res.status(400).json({ error: "Tous les champs sont obligatoires" });
   }
 
