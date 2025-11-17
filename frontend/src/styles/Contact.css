@@ -7,7 +7,7 @@
   align-items: flex-start;
   gap: 40px;
   width: 100%;
-  padding: 100px 10px;
+  padding: 100px 10px 60px 10px;
   box-sizing: border-box;
 }
 
@@ -138,6 +138,8 @@
   min-height: 160px;
   width: 100%;
   box-sizing: border-box;
+  font-size: 14px;
+  font-family: inherit;
 }
 
 /* compteur de caractères */
@@ -171,10 +173,11 @@
   color: #df5f51;
   margin: 0px;
   margin-top: 2px;
+  font-size: 13px;
 }
 
 .error-input {
-  border: 1px solid #df5f51 !important;
+  border: 2px solid #df5f51;
 }
 
 /* messages de succès */
