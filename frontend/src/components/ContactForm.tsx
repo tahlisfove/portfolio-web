@@ -43,7 +43,7 @@ const ContactForm: React.FC = () => {
     if (!submitted) return false
     if (field === "name") return !name
     if (field === "email") return !email || !validateEmail(email)
-    if (field === "phone") return !phone || !validatePhone(phone)
+    if (field === "phone") return phone ? !validatePhone(phone) : false
     if (field === "subject") return !subject
     if (field === "message") return !message || message.length > MAX_MESSAGE_LENGTH
     return false
@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
     const newErrors: string[] = []
     if (!name || !email || !subject || !message) newErrors.push(t("contact.fieldsRequired"))
     if (email && !validateEmail(email)) newErrors.push(t("contact.invalidEmail"))
-    if (!validatePhone(phone)) newErrors.push(t("contact.invalidPhone"))
+    if (phone && !validatePhone(phone)) newErrors.push(t("contact.invalidPhone"))
     if (message.length > MAX_MESSAGE_LENGTH) newErrors.push(t("contact.messageTooLong"))
     setErrors([...new Set(newErrors)])
   }, [name, email, phone, subject, message, submitted, t])
@@ -73,7 +73,7 @@ const ContactForm: React.FC = () => {
     /* validations avant envoi */
     if (!name || !email || !subject || !message) validationErrors.push(t("contact.fieldsRequired"))
     if (email && !validateEmail(email)) validationErrors.push(t("contact.invalidEmail"))
-    if (!validatePhone(phone)) validationErrors.push(t("contact.invalidPhone"))
+    if (phone && !validatePhone(phone)) validationErrors.push(t("contact.invalidPhone"))
     if (message.length > MAX_MESSAGE_LENGTH) validationErrors.push(t("contact.messageTooLong"))
 
     /* si erreurs on arrete */
@@ -154,7 +154,7 @@ const ContactForm: React.FC = () => {
         type="text"
         placeholder={t("contact.phone")}
         value={phone}
-        onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 20))}
+        onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
         className={hasError("phone") ? "error-input" : ""}
         aria-label={t("contact.phone")}
         aria-required="false"
