@@ -55,7 +55,7 @@
     "title": "Privacy Policy",
     "intro": "This page explains in detail how your personal information is collected, used, and protected when you use the contact form on this site. The collection aims to respond to your inquiries while ensuring the security and confidentiality of your data.",
     "dataCollection": "Data Collection",
-    "dataCollectionText": "When you fill out the contact form, certain personal information such as your name, email address, the subject of your message, and the message content is collected. This information is used exclusively to understand your request and respond accurately and personally. No additional data is collected without your explicit consent.",
+    "dataCollectionText": "When you fill out the contact form, certain personal information such as your name, email address, phone number, the subject of your message, and the message content is collected. This information is used to understand your request and respond accurately. No other data is collected without your explicit consent.",
     "useOfData": "Use of Data",
     "useOfDataText": "The information you provide is used solely to process and respond to your inquiry. It is never shared with third parties and is not used for any commercial purposes. Access to these data is strictly limited and your information remains confidential.",
     "dataRetention": "Data Retention",
