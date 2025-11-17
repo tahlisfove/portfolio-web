@@ -57,17 +57,19 @@ const Projects: React.FC = () => {
           />
         ))}
 
-      {/* bouton profil GitHub */}
-      <div className="github-profile-card" role="region" aria-label={t("projects.btnGithub")}>
-        <a
-          href="https://github.com/tahlisfove"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-github-profile"
-        >
-          {t("projects.btnGithub")}
-        </a>
-      </div>
+        {/* bouton profil GitHub */}
+        {projects.length > 0 && (
+          <div className="github-profile-card" role="region" aria-label={t("projects.btnGithub")}>
+            <a
+              href="https://github.com/tahlisfove"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-github-profile"
+            >
+              {t("projects.btnGithub")}
+            </a>
+          </div>
+        )}
     </div>
   );
 };
