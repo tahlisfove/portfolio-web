@@ -186,6 +186,13 @@
   margin: 0px;
 }
 
+.line-between-contact {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(51,51,51,0.8) 20%, rgba(51,51,51,0.8) 80%, transparent 100%);
+  margin: 45px 0 45px 0;
+}
+
 /***************************************************/
 
 
@@ -243,6 +250,10 @@
 
   .contact-form {
     margin-top: 25px;
+  }
+
+  .line-between-contact {
+    margin: 10px 0 0 0;
   }
 }
 
