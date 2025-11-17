@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
     /* envoi du mail */
     await sgMail.send({
       to: CONTACT_RECEIVER,
-      from: "Portfolio Contact <no-reply@sendgrid.net>",
+      from: "Portfolio Contact <no-reply@samuel-christoph.fr>",
       replyTo: email,
       subject: `[Portfolio] ${subject}`,
       html: `
