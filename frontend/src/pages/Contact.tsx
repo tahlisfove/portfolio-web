@@ -23,6 +23,11 @@ const Contact: React.FC = () => {
       {/* colonne gauche */}
       <ContactLeft />
 
+      {/* ligne séparatrice */}
+      {isMobile && (
+        <div className="line-between-intro-projects" aria-hidden="true"></div>
+      )}
+
       {/* colonne droite */}
       <div className="contact-right">
         {isMobile && <h2 className="contact-form-title">{t("contact.formTitle")}</h2>}
