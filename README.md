@@ -30,7 +30,13 @@ Fonctionnalités principales :
 - Node.js + Express + TypeScript  
 - PostgreSQL + Prisma ORM  
 - API dédiée aux projets  
-- Route de contact sécurisée (rate limiting + SendGrid)
+- Route de contact sécurisée (rate limiting + SendGrid)  
+
+**Backend URL :** [https://api.samuel-christoph.fr](https://api.samuel-christoph.fr)
+
+**Routes disponibles :**
+- `GET /projects` → Récupère la liste des projets
+- `POST /contact` → Envoie un email via le formulaire de contact
 
 ### Hébergement & services
 - **Frontend : Vercel**  
