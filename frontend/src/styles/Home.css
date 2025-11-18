@@ -35,7 +35,6 @@ section:last-of-type::after {
 
 /***************************************************/
 
-
 /* section présentation */
 .hero, 
 .hero-photo {
@@ -137,16 +136,11 @@ section:last-of-type::after {
 
 /***************************************************/
 
-
 /* titre des sections */
-.about h2, .stack h2, .featured-projects h2 {
+.about h2, .featured-projects h2 {
   margin-bottom: 30px;
   font-size: 24px;
   color: #8a8a8a;
-}
-
-.stack h2 {
-  margin-bottom: 40px;
 }
 
 /* texte de présentation */
@@ -160,62 +154,6 @@ section:last-of-type::after {
 }
 
 /***************************************************/
-
-
-/* liste des technologies */
-.stack-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-}
-
-/* carte d'une technologie */
-.stack-item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 140px;
-  width: 100%;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.stack-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-}
-
-/* image d'une technologie */
-.stack-item img {
-  width: 45px; 
-  height: 45px;
-  object-fit: contain;
-  margin-bottom: 14px;
-  flex: 0 0 auto;
-  transform: translateZ(0);
-}
-
-/* nom d'une technologie */
-.stack-item span {
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  opacity: 0.9;
-  transform: translateZ(0);
-}
-
-.project-year {
-  display: inline;
-}
-
-/***************************************************/
-
 
 /* section projets */
 .featured-projects {
@@ -254,10 +192,8 @@ section:last-of-type::after {
 .project-year {
   font-size: 0.9rem;
   color: #8a8a8a;
-  text-align: right;
 }
 
-/* ligne de séparation entre titre et année */
 .line-between {
   flex: 1;
   height: 1px;
@@ -274,18 +210,9 @@ section:last-of-type::after {
 
 /***************************************************/
 
-
 /* responsive pour le grid */
 @media (max-width: 1024px) {
-  .stack-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
-    padding: 0 80px;
-  }
-
-  .stack-item {
-    height: 140px;
-  }
+  /* plus de stack ici, déplacé dans Stack.css */
 }
 
 @media (max-width: 700px) {
@@ -310,7 +237,7 @@ section:last-of-type::after {
     font-size: 11px;
   }
 
-  .about h2, .stack h2, .featured-projects h2 {
+  .about h2, .featured-projects h2 {
     text-align: center;
   }
 
@@ -322,20 +249,6 @@ section:last-of-type::after {
   section {
     padding-bottom: 50px;
     margin-bottom: 40px;
-  }
-
-  .stack-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 0 50px;
-  }
-
-  .stack-item {
-    height: 130px;
-  }
-
-  .stack-item span {
-    font-size: 15px;
   }
 
   .project-title {
@@ -356,7 +269,6 @@ section:last-of-type::after {
 }
 
 /***************************************************/
-
 
 @media (max-width: 400px) {
 

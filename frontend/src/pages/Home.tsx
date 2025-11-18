@@ -6,6 +6,8 @@ import Loader from "../components/Loader";
 import "../styles/Home.css";
 import "../styles/Buttons.css";
 
+import Stack from "../components/Stack"; // <-- AJOUT
+
 interface HomeProps {
   setPage: (page: "home" | "projects" | "contact") => void;
 }
@@ -83,31 +85,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       </section>
 
       {/* section stack technologique */}
-      <section className="stack" aria-label={t("home.stack.sectionAria")} role="region">
-        <h2 id="stack-title">{t("home.stack.sectionTitle")}</h2>
-        <div className="stack-grid">
-          {[
-            "react",
-            "typescript",
-            "nodejs",
-            "git",
-            "figma",
-            "android",
-            "postgresql",
-            "docker"
-          ].map(tech => (
-            <div key={tech} className="stack-item" role="img"
-                 aria-label={
-                   language === "fr"
-                     ? `logo de ${tech}`
-                     : `${tech} logo`
-                 }>
-              <img src={`/icons/stack/${tech}.png`} alt={tech} />
-              <span>{tech.charAt(0).toUpperCase() + tech.slice(1)}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <Stack />
 
       {/* section projets mis en avant */}
       <section className="featured-projects" aria-label={t("home.projects.sectionAria")} role="region">
