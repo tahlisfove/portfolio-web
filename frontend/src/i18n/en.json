@@ -17,7 +17,17 @@
       "p2": "During my final-year internship, I developed a complete tool in a new technical environment, which strengthened my ability to organize my work and make sound technical decisions. Today, I continue exploring modern frameworks to expand my skills and am eager to join a team where I can contribute to engaging projects."
     },
     "stack": {
-      "sectionTitle": "Tech Stack"
+      "sectionTitle": "Tech Stack",
+      "descriptions": {
+        "react": "JavaScript library for building modern user interfaces.",
+        "typescript": "A typed superset of JavaScript for more reliable code.",
+        "nodejs": "Environment that runs JavaScript on the server side.",
+        "git": "Version control system to manage and track code changes.",
+        "figma": "Collaborative interface design and prototyping tool.",
+        "android": "Mobile operating system enabling app development.",
+        "postgresql": "Robust and powerful open-source SQL database.",
+        "docker": "Containerization platform to deploy isolated applications."
+      }
     },
     "projects": {
       "sectionTitle": "Projects",

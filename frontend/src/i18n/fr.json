@@ -17,7 +17,17 @@
       "p2": "Lors de mon stage de fin d’études, j’ai développé un outil complet dans un écosystème que je découvrais, ce qui a renforcé ma capacité à m’organiser et à prendre des décisions techniques. Aujourd’hui, je continue d’explorer des frameworks modernes pour enrichir mes compétences et suis motivé à rejoindre une équipe pour contribuer à des projets stimulants."
     },
     "stack": {
-      "sectionTitle": "Stack technologique"
+      "sectionTitle": "Stack technologique",
+      "descriptions": {
+        "react": "Bibliothèque JavaScript pour créer des interfaces utilisateur modernes.",
+        "typescript": "Version typée de JavaScript offrant un code plus fiable.",
+        "nodejs": "Environnement permettant d'exécuter JavaScript côté serveur.",
+        "git": "Système de versionnage pour suivre et gérer le code.",
+        "figma": "Outil de design et prototypage collaboratif.",
+        "android": "Système d'exploitation mobile permettant le développement d'applications.",
+        "postgresql": "Base de données SQL open-source robuste et performante.",
+        "docker": "Plateforme de conteneurisation permettant de déployer des applications isolées."
+      }
     },
     "projects": {
       "sectionTitle": "Projets",

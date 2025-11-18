@@ -1,14 +1,17 @@
+/* section stack */
 .stack {
   padding-bottom: 70px;
   margin-bottom: 50px;
 }
 
+/* titre de la section */
 .stack h2 {
   margin-bottom: 40px;
   font-size: 24px;
   color: #8a8a8a;
 }
 
+/* grille des technologies */
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -26,7 +29,11 @@
   justify-content: center;
   height: 140px;
   width: 100%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 
 .stack-item:hover {
@@ -34,33 +41,86 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
+/* image d'une technologie */
 .stack-item img {
   width: 45px;
   height: 45px;
+  object-fit: contain;
+  flex: 0 0 auto;
   margin-bottom: 14px;
+  transform: translateZ(0);
 }
 
+/* nom d'une technologie */
 .stack-item span {
   font-size: 16px;
   font-weight: bold;
   color: #fff;
   opacity: 0.9;
+  transform: translateZ(0);
 }
 
-/* responsive */
-@media (max-width: 1024px) {
+/***************************************************/
+
+
+/* tooltip descriptif */
+.stack-tooltip {
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(25, 25, 25, 0.95);
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  color: #fff;
+  width: 230px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10;
+  animation: tooltipFade 0.2s ease-out;
+}
+
+@keyframes tooltipFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/***************************************************/
+
+
+/* responsive 1000px */
+@media (max-width: 1000px) {
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
     padding: 0 80px;
   }
+
+  .stack-item {
+    height: 140px;
+  }
 }
 
-@media (max-width: 700px) {
+/***************************************************/
+
+
+/* responsive 600px */
+@media (max-width: 600px) {
   .stack-grid {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 0 50px;
+  }
+
+  .stack-item {
+    height: 130px;
   }
 
   .stack-item span {
