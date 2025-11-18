@@ -35,7 +35,7 @@ export const useProjects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch(`${API_URL}/api/projects`);
+        const res = await fetch(`${API_URL}/projects`);
         const data: Project[] = await res.json();
         setProjects(data);
       } catch (err) {

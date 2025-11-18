@@ -20,8 +20,8 @@ const contactLimiter = rateLimit({
 });
 
 /* routes principales de l’API */
-app.use("/api/projects", projectsRouter);
-app.use("/api/contact", contactLimiter, contactRouter);
+app.use("/projects", projectsRouter);
+app.use("/contact", contactLimiter, contactRouter);
 
 /* route racine pour vérifier que le serveur fonctionne */
 app.get("/", (_req, res) => {
@@ -29,12 +29,12 @@ app.get("/", (_req, res) => {
     message: "Backend API is running!",
     routes: {
       projects: {
-        url: "/api/projects",
+        url: "/projects",
         method: "GET",
         description: "Récupère la liste des projets"
       },
       contact: {
-        url: "/api/contact",
+        url: "/contact",
         method: "POST",
         description: "Envoie un email via le formulaire de contact"
       }

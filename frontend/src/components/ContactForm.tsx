@@ -90,7 +90,7 @@ const ContactForm: React.FC = () => {
 
     /* tentative denvoi au serveur */
     try {
-      const response = await fetch(`${API_URL}/api/contact`, {        
+      const response = await fetch(`${API_URL}/contact`, {        
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, subject, message }),
