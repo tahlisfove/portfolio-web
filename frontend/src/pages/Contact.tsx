@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
 
       {/* ligne séparatrice */}
       {isMobile && (
-        <div className="line-between-intro-projects" aria-hidden="true"></div>
+        <div className="line-between-intro-contact" aria-hidden="true"></div>
       )}
 
       {/* colonne droite */}
