@@ -2,47 +2,49 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
-import { PrismaClient } from "@prisma/client";
 
 import projectsRouter from "./routes/projects";
 import contactRouter from "./routes/contact";
 
 const app = express();
-const prisma = new PrismaClient();
-
-/* render passe les requêtes via un proxy */
-app.set("trust proxy", 1);
 
 /* middlewares */
 app.use(cors());
 app.use(express.json());
 
-/* limiteur de requêtes pour éviter le spam */
+/* limiteur de requêtes pour le formulaire contact */
 const contactLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
   max: 10,
   message: "Trop de demandes. Veuillez réessayer plus tard.",
 });
 
-/* routes principales de l’api */
+/* routes principales de l’API */
 app.use("/api/projects", projectsRouter);
 app.use("/api/contact", contactLimiter, contactRouter);
+
+/* route racine pour vérifier que le serveur fonctionne */
+app.get("/", (_req, res) => {
+  res.json({
+    message: "Backend API is running!",
+    routes: {
+      projects: {
+        url: "/api/projects",
+        method: "GET",
+        description: "Récupère la liste des projets"
+      },
+      contact: {
+        url: "/api/contact",
+        method: "POST",
+        description: "Envoie un email via le formulaire de contact"
+      }
+    }
+  });
+});
+
 
 /* démarrage du serveur */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-
-  // ping immédiat au démarrage
-  async function pingDatabase() {
-    try {
-      await prisma.$queryRaw`SELECT 1`;
-      console.log("BDD ping réussie !");
-    } catch (err) {
-      console.error("Erreur lors du ping de la BDD :", err);
-    }
-  }
-
-  pingDatabase();
-  setInterval(pingDatabase, 5 * 60 * 1000);
 });
