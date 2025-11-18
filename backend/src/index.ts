@@ -2,11 +2,13 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
+import { PrismaClient } from "@prisma/client";
 
 import projectsRouter from "./routes/projects";
 import contactRouter from "./routes/contact";
 
 const app = express();
+const prisma = new PrismaClient();
 
 /* render passe les requêtes via un proxy */
 app.set("trust proxy", 1);
@@ -28,4 +30,19 @@ app.use("/api/contact", contactLimiter, contactRouter);
 
 /* démarrage du serveur */
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+
+  // ping immédiat au démarrage
+  async function pingDatabase() {
+    try {
+      await prisma.$queryRaw`SELECT 1`;
+      console.log("BDD ping réussie !");
+    } catch (err) {
+      console.error("Erreur lors du ping de la BDD :", err);
+    }
+  }
+
+  pingDatabase();
+  setInterval(pingDatabase, 5 * 60 * 1000);
+});
