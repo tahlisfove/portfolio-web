@@ -12,6 +12,7 @@ const ContactLeft: React.FC = () => {
   const LINKEDIN = import.meta.env.VITE_LINKEDIN
   const CV_FR = import.meta.env.VITE_CV_FR
   const CV_EN = import.meta.env.VITE_CV_EN
+  const LINKEDIN_NAME = import.meta.env.VITE_LINKEDIN_NAME
 
   /* sélection du CV selon la langue */
   const cvFile = language === "fr" ? CV_FR : CV_EN
@@ -62,7 +63,7 @@ const ContactLeft: React.FC = () => {
             rel="noopener noreferrer"
             aria-label={language === "fr" ? "profil linkedin de Samuel" : "Samuel's linkedin profile"}
           >
-            {LINKEDIN}
+            {LINKEDIN_NAME}
           </a>
         </div>
       </div>
