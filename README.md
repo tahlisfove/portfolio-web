@@ -1,4 +1,4 @@
-# 🌐 Portfolio Web – Samuel Christoph
+# Portfolio Web – Samuel Christoph
 
 Bienvenue sur le dépôt du site **www.samuel-christoph.fr**, mon portfolio et CV en ligne.  
 Ce projet me présente rapidement, mes compétences et mes réalisations à travers une interface moderne, responsive et accessible.
