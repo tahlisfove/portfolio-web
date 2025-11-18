@@ -36,7 +36,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       <section className="hero" aria-label={t("home.hero.sectionAria")} role="region">
         <div className="hero-content">
           <div className="hero-photo" aria-label={t("home.hero.photoAria")}>
-            <img src={import.meta.env.REACT_APP_PROFILE_PHOTO} alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
+            <img src={import.meta.env.VITE_PROFILE_PHOTO} alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
           </div>
           <h1>{t("home.hero.name")}</h1>
           <h2>{t("home.hero.status")}</h2>
