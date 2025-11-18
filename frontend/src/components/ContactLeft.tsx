@@ -62,7 +62,7 @@ const ContactLeft: React.FC = () => {
             rel="noopener noreferrer"
             aria-label={language === "fr" ? "profil linkedin de Samuel" : "Samuel's linkedin profile"}
           >
-            LinkedIn
+            {LINKEDIN}
           </a>
         </div>
       </div>
