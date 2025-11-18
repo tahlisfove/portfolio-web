@@ -11,12 +11,16 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ setPage }) => {
   const { language, t } = useLanguage()
 
+  /* récupération des variables d’environnement */
+  const LINKEDIN = import.meta.env.VITE_LINKEDIN
+  const GITHUB = import.meta.env.VITE_GITHUB
+
   return (
     <footer className="footer">
       <div className="footer-logos">
         {/* lien linkedin */}
         <a
-          href="https://www.linkedin.com/in/samuelchristoph/"
+          href={LINKEDIN}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={language === "fr" ? "linkedin profil" : "linkedin profile"}
@@ -26,7 +30,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
 
         {/* lien github */}
         <a
-          href="https://github.com/tahlisfove"
+          href={GITHUB}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={language === "fr" ? "github profil" : "github profile"}

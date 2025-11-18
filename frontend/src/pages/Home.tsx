@@ -6,7 +6,6 @@ import Loader from "../components/Loader";
 import "../styles/Home.css";
 import "../styles/Buttons.css";
 
-
 interface HomeProps {
   setPage: (page: "home" | "projects" | "contact") => void;
 }
@@ -24,6 +23,12 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
 
   const yearLabels = [t("home.projects.years.ongoing"), "2025", "2024", "2023"];
 
+  /* récupération des variables d’environnement */
+  const LINKEDIN = import.meta.env.VITE_LINKEDIN;
+  const INSTAGRAM = import.meta.env.VITE_INSTAGRAM;
+  const GITHUB = import.meta.env.VITE_GITHUB;
+  const SPOTIFY = import.meta.env.VITE_SPOTIFY;
+
   return (
     <div className="home-container">
 
@@ -31,7 +36,7 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       <section className="hero" aria-label={t("home.hero.sectionAria")} role="region">
         <div className="hero-content">
           <div className="hero-photo" aria-label={t("home.hero.photoAria")}>
-            <img src="/samuel.jpg" alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
+            <img src={import.meta.env.REACT_APP_PROFILE_PHOTO} alt={t("home.hero.photoAlt")} className="photo-placeholder"/>
           </div>
           <h1>{t("home.hero.name")}</h1>
           <h2>{t("home.hero.status")}</h2>
@@ -44,19 +49,19 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
 
           {/* réseaux sociaux */}
           <div className="contacts">
-            <a href="https://instagram.com/samuel.chrstph" target="_blank" rel="noopener noreferrer"
+            <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir Instagram dans un nouvel onglet" : "open Instagram in new tab"}>
               <img src="/icons/logos/instagram.png" alt="Instagram" />
             </a>
-            <a href="https://www.linkedin.com/in/samuelchristoph" target="_blank" rel="noopener noreferrer"
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir LinkedIn dans un nouvel onglet" : "open LinkedIn in new tab"}>
               <img src="/icons/logos/linkedin2.png" alt="LinkedIn" />
             </a>
-            <a href="https://github.com/tahlisfove" target="_blank" rel="noopener noreferrer"
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir GitHub dans un nouvel onglet" : "open GitHub in new tab"}>
               <img src="/icons/logos/github.png" alt="GitHub" />
             </a>
-            <a href="https://open.spotify.com/user/tahlisfove" target="_blank" rel="noopener noreferrer"
+            <a href={SPOTIFY} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir Spotify dans un nouvel onglet" : "open Spotify in new tab"}>
               <img src="/icons/logos/spotify.png" alt="Spotify" />
             </a>

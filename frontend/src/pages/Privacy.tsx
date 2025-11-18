@@ -7,6 +7,9 @@ import "../styles/Privacy.css"
 const Privacy: React.FC = () => {
   const { t } = useLanguage()
 
+  const EMAIL = import.meta.env.VITE_EMAIL;
+  const LINKEDIN = import.meta.env.VITE_LINKEDIN;
+
   return (
     <div className="privacy-page">
       {/* titre de la page */}
@@ -40,12 +43,12 @@ const Privacy: React.FC = () => {
         <h2 id="contact-infos-title">{t("privacy.contactInfos")}</h2>
         <p>
           {t("privacy.contactTextStart")}
-          <a href="mailto:contact@samuel-christoph.fr" aria-label={t("privacy.contactEmail")}>
-            contact@samuel-christoph.fr
+          <a href={`mailto:${EMAIL}`} aria-label={t("privacy.contactEmail")}>
+            {EMAIL}
           </a>
           {t("privacy.contactTextMiddle")}
           <a
-            href="https://www.linkedin.com/in/samuelchristoph/"
+            href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("privacy.contactLinkedin")}
