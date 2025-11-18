@@ -34,8 +34,8 @@ Fonctionnalités principales :
 
 ### Hébergement & services
 - **Frontend : Vercel**  
-- **Backend : Render**  
-- **Base de données : PostgreSQL Render**  
+- **Backend : Railway**  
+- **Base de données : PostgreSQL**  
 - **Emails : SendGrid**
 
 ## Accès au site
