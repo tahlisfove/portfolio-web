@@ -90,8 +90,7 @@
 }
 
 .description-stack {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px 10px;
 }
 
 /* logo verso */
@@ -107,6 +106,7 @@
 
 /* responsive 1000px */
 @media (max-width: 1000px) {
+
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
@@ -123,6 +123,10 @@
 
 /* responsive 600px */
 @media (max-width: 600px) {
+
+  .stack h2 {
+    text-align: center;
+  }
   .stack-grid {
     grid-template-columns: 1fr;
     gap: 30px;
