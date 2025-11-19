@@ -173,7 +173,7 @@
   color: #df5f51;
   margin: 0px;
   margin-top: 2px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .error-input {
@@ -184,6 +184,7 @@
 .success-msg {
   color: #4caf50;
   margin: 0px;
+  font-size: 14px;
 }
 
 .line-between-contact {
