@@ -67,7 +67,7 @@ const Stack: React.FC = () => {
             {/* verso */}
             <div className="stack-item-back">
               <img src={`/icons/stack/${tech}.png`} alt={tech} />
-              <span>
+              <span className="description-stack">
                 {dict.descriptions[tech as keyof typeof dict.descriptions]}
               </span>
             </div>
