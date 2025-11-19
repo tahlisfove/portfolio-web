@@ -19,13 +19,13 @@ const technologies = [
 
 const Stack: React.FC = () => {
   const { language } = useLanguage();
-  const [openTech, setOpenTech] = useState<string | null>(null);
+  const [flippedTech, setFlippedTech] = useState<string | null>(null);
 
-  /* détection clic extérieur pour fermer le tooltip */
+  /* détection clic extérieur pour fermer la flip */
   useEffect(() => {
-    const closeTooltip = () => setOpenTech(null);
-    window.addEventListener("click", closeTooltip);
-    return () => window.removeEventListener("click", closeTooltip);
+    const closeFlip = () => setFlippedTech(null);
+    window.addEventListener("click", closeFlip);
+    return () => window.removeEventListener("click", closeFlip);
   }, []);
 
   const dict = language === "fr" ? fr.home.stack : en.home.stack;
@@ -34,7 +34,9 @@ const Stack: React.FC = () => {
     <section
       className="stack"
       aria-label={
-        language === "fr" ? "section stack technologique" : "tech stack section"
+        language === "fr"
+          ? "section stack technologique"
+          : "tech stack section"
       }
       role="region"
     >
@@ -44,23 +46,31 @@ const Stack: React.FC = () => {
         {technologies.map((tech) => (
           <div
             key={tech}
-            className="stack-item"
+            className={`stack-item ${
+              flippedTech === tech ? "flipped" : ""
+            }`}
             role="img"
-            aria-label={language === "fr" ? `logo de ${tech}` : `${tech} logo`}
+            aria-label={
+              language === "fr" ? `logo de ${tech}` : `${tech} logo`
+            }
             onClick={(e) => {
               e.stopPropagation();
-              setOpenTech(openTech === tech ? null : tech);
+              setFlippedTech(flippedTech === tech ? null : tech);
             }}
           >
-            <img src={`/icons/stack/${tech}.png`} alt={tech} />
-            <span>{tech.charAt(0).toUpperCase() + tech.slice(1)}</span>
+            {/* recto */}
+            <div className="stack-item-front">
+              <img src={`/icons/stack/${tech}.png`} alt={tech} />
+              <span>{tech.charAt(0).toUpperCase() + tech.slice(1)}</span>
+            </div>
 
-            {/* tooltip descriptif au clic */}
-            {openTech === tech && (
-              <div className="stack-tooltip">
-                {dict.descriptions[tech as keyof typeof dict.descriptions]}              
-              </div>
-            )}
+            {/* verso */}
+            <div className="stack-item-back">
+              <img src={`/icons/stack/${tech}.png`} alt={tech} />
+              <span>
+                {dict.descriptions[tech as keyof typeof dict.descriptions]}
+              </span>
+            </div>
           </div>
         ))}
       </div>
