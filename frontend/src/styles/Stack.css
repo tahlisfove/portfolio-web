@@ -87,6 +87,8 @@
   align-items: center;
   backface-visibility: hidden;
   z-index: 1;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /* logo verso */
