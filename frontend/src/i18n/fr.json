@@ -32,7 +32,7 @@
     "projects": {
       "sectionTitle": "Projets",
       "seeMoreBtn": "Voir plus",
-      "loading": "on affine les détails",
+      "loading": "chargement des projet",
       "years": {
         "ongoing": "en cours..."
       }
