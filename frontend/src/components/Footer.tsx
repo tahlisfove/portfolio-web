@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           rel="noopener noreferrer"
           aria-label={language === "fr" ? "linkedin profil" : "linkedin profile"}
         >
-          <img src="/icons/logos/linkedin.png" alt="linkedin" />
+          <img src="/icons/logos/linkedin.webp" alt="linkedin" />
         </a>
 
         {/* lien github */}
@@ -35,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
           rel="noopener noreferrer"
           aria-label={language === "fr" ? "github profil" : "github profile"}
         >
-          <img src="/icons/logos/github.png" alt="github" />
+          <img src="/icons/logos/github.webp" alt="github" />
         </a>
 
         {/* ouvre la page contact */}
@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
             }
           }}
         >
-          <img src="/icons/logos/email.png" alt="contact" />
+          <img src="/icons/logos/email.webp" alt="contact" />
         </button>
       </div>
 

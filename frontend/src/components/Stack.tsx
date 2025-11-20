@@ -60,13 +60,13 @@ const Stack: React.FC = () => {
           >
             {/* recto */}
             <div className="stack-item-front">
-              <img src={`/icons/stack/${tech}.png`} alt={tech} />
+              <img src={`/icons/stack/${tech}.webp`} alt={tech} />
               <span>{tech.charAt(0).toUpperCase() + tech.slice(1)}</span>
             </div>
 
             {/* verso */}
             <div className="stack-item-back">
-              <img src={`/icons/stack/${tech}.png`} alt={tech} />
+              <img src={`/icons/stack/${tech}.webp`} alt={tech} />
               <span className="description-stack">
                 {dict.descriptions[tech as keyof typeof dict.descriptions]}
               </span>

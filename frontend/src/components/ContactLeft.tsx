@@ -31,7 +31,7 @@ const ContactLeft: React.FC = () => {
       <div className="contact-info">
         {/* email */}
         <div>
-          <img src="/icons/logos/contact.png" alt={language === "fr" ? "email" : "email"} />
+          <img src="/icons/logos/contact.webp" alt={language === "fr" ? "email" : "email"} />
           <a
             className="contact-link"
             href={`mailto:${EMAIL}`}
@@ -43,7 +43,7 @@ const ContactLeft: React.FC = () => {
 
         {/* telephone */}
         <div>
-          <img src="/icons/logos/phone.png" alt={language === "fr" ? "telephone" : "phone"} />
+          <img src="/icons/logos/phone.webp" alt={language === "fr" ? "telephone" : "phone"} />
           <a
             className="contact-link"
             href={`tel:${PHONE?.replace(/\D/g, "")}`}
@@ -55,7 +55,7 @@ const ContactLeft: React.FC = () => {
 
         {/* linkedin */}
         <div>
-          <img src="/icons/logos/linkedin3.png" alt={language === "fr" ? "linkedin" : "linkedin"} />
+          <img src="/icons/logos/linkedin3.webp" alt={language === "fr" ? "linkedin" : "linkedin"} />
           <a
             className="contact-link"
             href={LINKEDIN}
@@ -78,7 +78,7 @@ const ContactLeft: React.FC = () => {
           }
         >
           {t("contact.cv")}
-          <img src="/icons/logos/cv.png" alt={language === "fr" ? "icone cv" : "cv icon"} />
+          <img src="/icons/logos/cv.webp" alt={language === "fr" ? "icone cv" : "cv icon"} />
         </a>
       </div>
     </div>

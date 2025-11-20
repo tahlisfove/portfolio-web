@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ setPage, activePage }) => {
             }
           }}
         >
-          <img src="/icons/projects/portfolio.png" alt="samuel christoph" />
+          <img src="/icons/projects/portfolio.webp" alt="samuel christoph" />
         </div>
 
         {/* navigation principale */}

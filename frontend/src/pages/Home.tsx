@@ -53,26 +53,26 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
           <div className="contacts">
             <a href={INSTAGRAM} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir Instagram dans un nouvel onglet" : "open Instagram in new tab"}>
-              <img src="/icons/logos/instagram.png" alt="Instagram" />
+              <img src="/icons/logos/instagram.webp" alt="Instagram" />
             </a>
             <a href={LINKEDIN} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir LinkedIn dans un nouvel onglet" : "open LinkedIn in new tab"}>
-              <img src="/icons/logos/linkedin2.png" alt="LinkedIn" />
+              <img src="/icons/logos/linkedin2.webp" alt="LinkedIn" />
             </a>
             <a href={GITHUB} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir GitHub dans un nouvel onglet" : "open GitHub in new tab"}>
-              <img src="/icons/logos/github.png" alt="GitHub" />
+              <img src="/icons/logos/github.webp" alt="GitHub" />
             </a>
             <a href={SPOTIFY} target="_blank" rel="noopener noreferrer"
                aria-label={language === "fr" ? "ouvrir Spotify dans un nouvel onglet" : "open Spotify in new tab"}>
-              <img src="/icons/logos/spotify.png" alt="Spotify" />
+              <img src="/icons/logos/spotify.webp" alt="Spotify" />
             </a>
           </div>
 
           {/* bouton contact */}
           <button className="btn-contact" onClick={() => setPage("contact")} aria-label={t("home.hero.contactBtn")}>
             {t("home.hero.contactBtn")}
-            <img src="/icons/logos/contact.png" alt="Contact Icon" className="contact-icon" />
+            <img src="/icons/logos/contact.webp" alt="Contact Icon" className="contact-icon" />
           </button>
         </div>
       </section>

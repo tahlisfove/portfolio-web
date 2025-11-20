@@ -68,7 +68,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           aria-label={`voir le code du projet ${title} / view the code of project ${title}`}
           role="button"
         >
-          <img src="/icons/logos/github.png" alt="" aria-hidden="true" className="github-icon-btn"/>
+          <img src="/icons/logos/github.webp" alt="" aria-hidden="true" className="github-icon-btn"/>
           CODE
         </a>
       </div>
