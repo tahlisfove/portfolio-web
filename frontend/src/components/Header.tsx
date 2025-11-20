@@ -109,21 +109,21 @@ const Header: React.FC<HeaderProps> = ({ setPage, activePage }) => {
         </nav>
 
         {/* bouton menu mobile */}
-        <div
+        <button
           className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          aria-label={language === "fr" ? "ouvrir fermer menu" : "open close menu"}
-          tabIndex={0}
+          aria-label={language === "fr" ? "ouvrir/fermer le menu" : "open/close menu"}
           onClick={() => setMenuOpen(!menuOpen)}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
-              setMenuOpen(!menuOpen)
+              e.preventDefault();
+              setMenuOpen(!menuOpen);
             }
           }}
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </header>
   )
