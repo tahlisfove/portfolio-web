@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "projects": "Works",
+    "projects": "Projects",
     "contact": "Contact"
   },
   "home": {
@@ -13,8 +13,9 @@
     },
     "about": {
       "title": "About me",
-      "p1": "Junior fullstack developer based in Montpellier, I design and enhance features on both front-end and back-end. I aim to balance design, usability, and architecture to create smooth experiences across web and mobile. I pay particular attention to coherence, structure, and overall product quality.",
-      "p2": "During my final-year internship, I developed a complete tool in a new technical environment, which strengthened my ability to organize my work and make sound technical decisions. Today, I continue exploring modern frameworks to expand my skills and am eager to join a team where I can contribute to engaging projects."
+      "p1": "Fullstack developer based in Montpellier, I design and improve features to be reliable and user-friendly, on both front-end and back-end. I aim to balance **design**, **usability**, and **architecture** to create smooth experiences across web and mobile. I pay particular attention to coherence, structure, and overall product quality.",
+      "p2": "Through various projects, I have built complete tools integrating **APIs**, data management, and **polished, responsive interfaces**, which strengthened my technical decision-making and teamwork skills. I also participated in a **prize-winning hackathon** and contributed to the **redesign of a website** for an association encouraging women to pursue careers in tech.",
+      "p3": "Today, I continue expanding my skills with **modern frameworks** and am eager to contribute to a dynamic team and concrete projects."
     },
     "stack": {
       "sectionTitle": "Tech Stack",

@@ -12,6 +12,16 @@ interface HomeProps {
   setPage: (page: "home" | "projects" | "contact") => void;
 }
 
+/* ajoute l'effet bold aux mots entourés de ** dans le json */
+function renderBoldText(text: string) {
+  return text.split(/(\*\*.*?\*\*)/g).map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
 const Home: React.FC<HomeProps> = ({ setPage }) => {
   const { language, t } = useLanguage();
   const { projects, showLoader } = useProjects();
@@ -80,8 +90,9 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
       {/* section présentation */}
       <section className="about" aria-label={t("home.about.sectionAria")} role="region">
         <h2 id="about-title">{t("home.about.title")}</h2>
-        <p>{t("home.about.p1")}</p>
-        <p>{t("home.about.p2")}</p>
+        <p>{renderBoldText(t("home.about.p1"))}</p>
+        <p>{renderBoldText(t("home.about.p2"))}</p>
+        <p>{renderBoldText(t("home.about.p3"))}</p>
       </section>
 
       {/* section stack technologique */}

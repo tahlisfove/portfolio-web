@@ -12,9 +12,10 @@
       "contactBtn": "Me contacter"
     },
     "about": {
-      "title": "Présentation",
-      "p1": "Développeur fullstack junior basé à Montpellier, je conçois et améliore des fonctionnalités aussi bien côté front-end que back-end. J’aime trouver l’équilibre entre design, ergonomie et architecture pour créer des expériences fluides sur web et mobile. Je suis particulièrement attentif à la cohérence, à la structure et à la qualité globale d’un produit.",
-      "p2": "Lors de mon stage de fin d’études, j’ai développé un outil complet dans un écosystème que je découvrais, ce qui a renforcé ma capacité à m’organiser et à prendre des décisions techniques. Aujourd’hui, je continue d’explorer des frameworks modernes pour enrichir mes compétences et suis motivé à rejoindre une équipe pour contribuer à des projets stimulants."
+      "title": "À propos de moi",
+      "p1": "Développeur fullstack basé à Montpellier, je conçois et améliore des fonctionnalités pensées pour être fiables et agréables à utiliser, aussi bien côté front-end que back-end. J’aime trouver l’équilibre entre **design**, **ergonomie** et **architecture** pour offrir des expériences fluides sur web et mobile. J’accorde une attention particulière à la cohérence, à la structure et à la qualité globale du produit.",
+      "p2": "Mes différents projets m’ont amené à concevoir des outils complets mêlant **intégration d’API**, gestion de données et **interfaces soignées et réactives**, ce qui a renforcé mes décisions techniques et ma capacité à travailler en équipe. J’ai également participé à un **hackathon primé** et contribué à la **refonte du site** d’une association encourageant les femmes à se lancer dans la tech.",
+      "p3": "Aujourd’hui, je poursuis mon évolution avec des **frameworks modernes** et souhaite mettre mes compétences au service d’une équipe dynamique et de projets concrets."
     },
     "stack": {
       "sectionTitle": "Stack technologique",
