@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [page, setPage] = useState<"home" | "projects" | "contact" | "privacy">("home");
   const [displayPage, setDisplayPage] = useState(page);
   const [transitioning, setTransitioning] = useState(false);
-  const [showContent, setShowContent] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
   const { language } = useLanguage();
 
   /* fonction pour changer de page avec animation */
@@ -25,25 +25,23 @@ const App: React.FC = () => {
 
     /* déclenche transition */
     setTransitioning(true);
-    setShowContent(false);
-
+  
     setTimeout(() => {
       setDisplayPage(newPage);
       window.scrollTo({ top: 0, behavior: "smooth" });
       setPage(newPage);
       setTransitioning(false);
-      setShowContent(true);
+      setShowFooter(true);
     }, TRANSITION_TIME);
   };
 
   /* transition lors du changement de langue */
   useEffect(() => {
     setTransitioning(true);
-    setShowContent(false);
 
     const timer = setTimeout(() => {
       setTransitioning(false);
-      setShowContent(true);
+      setShowFooter(true);
     }, TRANSITION_TIME);
 
     return () => clearTimeout(timer);
@@ -57,20 +55,20 @@ const App: React.FC = () => {
       <main className="main-content">
         {/* classe de transition */}
         <div className={`page-transition ${transitioning ? "fade-out" : "fade-in"}`}>
-          {showContent && (
-            <>
-              {/* affichage des pages */}
-              {displayPage === "home" && <Home setPage={handlePageChange} />}
-              {displayPage === "projects" && <Projects />}
-              {displayPage === "contact" && <Contact />}
-              {displayPage === "privacy" && <Privacy />}
-            </>
-          )}
+          <>
+            {/* affichage des pages */}
+            {displayPage === "home" && <Home setPage={handlePageChange} />}
+            {displayPage === "projects" && <Projects />}
+            {displayPage === "contact" && <Contact />}
+            {displayPage === "privacy" && <Privacy />}
+          </>
         </div>
       </main>
 
-      {/* footer */}
-      <Footer setPage={handlePageChange} />
+      {/* footer avec classe dynamique */}
+      <div className={showFooter ? "footer-visible" : "footer-hidden"}>
+        <Footer setPage={handlePageChange} />
+      </div>
     </div>
   );
 };
