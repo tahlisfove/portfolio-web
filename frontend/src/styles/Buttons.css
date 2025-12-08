@@ -8,7 +8,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 25px;
+  padding: 8px 15px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: white;
@@ -35,18 +35,11 @@
 
 /* icône bouton du cv */
 .contact-cv a img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-left: 4px;
 }
 
-/* bouton page projets */
-.btn-github-profile,
-.btn-see-more,
-.btn-contact {
-  margin: 0;
-  padding: 8px 20px;
-}
 
 /* effet brillance */
 .btn-contact::before,

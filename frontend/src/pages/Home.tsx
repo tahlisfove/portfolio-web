@@ -40,6 +40,11 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
   const INSTAGRAM = import.meta.env.VITE_INSTAGRAM;
   const GITHUB = import.meta.env.VITE_GITHUB;
   const SPOTIFY = import.meta.env.VITE_SPOTIFY;
+  const CV_FR = import.meta.env.VITE_CV_FR
+  const CV_EN = import.meta.env.VITE_CV_EN
+
+  /* sélection du CV selon la langue */
+  const cvFile = language === "fr" ? CV_FR : CV_EN
 
   return (
     <div className="home-container">
@@ -80,10 +85,25 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
           </div>
 
           {/* bouton contact */}
-          <button className="btn-contact" onClick={() => setPage("contact")} aria-label={t("home.hero.contactBtn")}>
-            {t("home.hero.contactBtn")}
-            <img src="/icons/logos/contact.webp" alt="Contact Icon" className="contact-icon" />
-          </button>
+          <div className="buttons-presentation">
+            <button className="btn-contact" onClick={() => setPage("contact")} aria-label={t("home.hero.contactBtn")}>
+              {t("home.hero.contactBtn")}
+              <img src="/icons/logos/contact.webp" alt="Contact Icon" className="contact-icon" />
+            </button>
+
+            <div className="contact-cv">
+              <a href={cvFile} download
+                aria-label={
+                  language === "fr"
+                    ? "telecharger le CV de Samuel"
+                    : "download Samuel's CV"
+                }
+              >
+                {t("contact.cv")}
+                <img src="/icons/logos/cv.webp" alt={language === "fr" ? "icone cv" : "cv icon"} />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -130,8 +130,17 @@ section:last-of-type::after {
   filter: brightness(1) drop-shadow(0 0 6px rgba(100, 149, 237, 0.6));
 }
 
-.btn-contact {
-  margin-top: 5px;
+.buttons-presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-contact,
+.contact-cv a {
+  display: flex;
+  align-items: center;
 }
 
 /***************************************************/
