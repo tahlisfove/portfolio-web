@@ -128,3 +128,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/***************************************************/
+
+@media (max-width: 400px) {
+
+  .buttons-presentation button,
+  .contact-cv a {
+    font-size: 12px;
+  }
+
+  .buttons-presentation button img,
+  .contact-cv a img {
+    display: none;
+  }
+}
