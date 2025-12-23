@@ -6,18 +6,22 @@
   },
   "home": {
     "hero": {
+      "sectionAria": "Hero section",
+      "photoAria": "Profile photo",
       "name": "Samuel Christoph",
-      "status": "Junior Full Stack Developer",
+      "status": "Full Stack Developer",
       "availability": "Available for new opportunities",
       "contactBtn": "Contact Me"
     },
     "about": {
+      "sectionAria": "About me section",
       "title": "About me",
-      "p1": "Fullstack developer based in Montpellier, I design and improve features to be reliable and user-friendly, on both front-end and back-end. I aim to balance **design**, **usability**, and **architecture** to create smooth experiences across web and mobile. I pay particular attention to coherence, structure, and overall product quality.",
+      "p1": "Full stack developer based in Montpellier, I design and improve features to be reliable and user-friendly, on both front-end and back-end. I aim to balance **design**, **usability**, and **architecture** to create smooth experiences across web and mobile. I pay particular attention to coherence, structure, and overall product quality.",
       "p2": "Through various projects, I have built complete tools integrating **APIs**, data management, and **polished, responsive interfaces**, which strengthened my technical decision-making and teamwork skills. I also participated in a **prize-winning hackathon** and contributed to the **redesign of a website** for an association encouraging women to pursue careers in tech.",
       "p3": "Today, I continue expanding my skills with **modern frameworks** and am eager to contribute to a dynamic team and concrete projects."
     },
     "stack": {
+      "sectionAria": "Tech stack section",
       "sectionTitle": "Tech Stack",
       "descriptions": {
         "react": "JavaScript library for building modern user interfaces.",
@@ -30,7 +34,27 @@
         "docker": "Containerization platform to deploy isolated applications."
       }
     },
+    "work": {
+      "sectionAria": "Professional experiences section",
+      "title": "Professional Experiences",
+      "experiences": {
+        "1": {
+          "title": "Full Stack Web Developer",
+          "company": "CGI France",
+          "location": "Castelnau-le-Lez, FR",
+          "site": "https://www.femmes-numerique.fr/",
+          "siteLabel": "Femme@Numérique",
+          "tasks": {
+            "t1": "Full development of the associations section (directory, details, form).",
+            "t2": "Created a component to highlight associations on the homepage.",
+            "t3": "Data synchronization via API and automated updates."
+          },
+          "feedback": "This experience allowed me to work on a live production site, strengthen my full stack skills, manage developments autonomously and collaboratively, and follow precise implementations according to project standards and mockups."
+        }
+      }
+    },
     "projects": {
+      "sectionAria": "Projects section",
       "sectionTitle": "Projects",
       "seeMoreBtn": "See More",
       "loading": "loading projects",
