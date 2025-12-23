@@ -3,10 +3,10 @@
 import { useLanguage } from "../context/LanguageContext";
 import { useProjects, type Project } from "../hooks/importProjects";
 import Loader from "../components/Loader";
+import Work from "../components/Work";
 import "../styles/Home.css";
 import "../styles/Buttons.css";
-
-import Stack from "../components/Stack"; // <-- AJOUT
+import Stack from "../components/Stack";
 
 interface HomeProps {
   setPage: (page: "home" | "projects" | "contact") => void;
@@ -117,6 +117,9 @@ const Home: React.FC<HomeProps> = ({ setPage }) => {
 
       {/* section stack technologique */}
       <Stack />
+
+      {/* section expérience professionnelle */}
+      <Work />
 
       {/* section projets mis en avant */}
       <section className="featured-projects" aria-label={t("home.projects.sectionAria")} role="region">
