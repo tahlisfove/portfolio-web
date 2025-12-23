@@ -20,26 +20,17 @@ const technologies = [
 const Stack: React.FC = () => {
   const { language } = useLanguage();
   const [flippedTech, setFlippedTech] = useState<string | null>(null);
+  const dict = language === "fr" ? fr.home.stack : en.home.stack;
 
-  /* détection clic extérieur pour fermer la flip */
+  /* détection clic extérieur pour fermer le flip */
   useEffect(() => {
     const closeFlip = () => setFlippedTech(null);
     window.addEventListener("click", closeFlip);
     return () => window.removeEventListener("click", closeFlip);
   }, []);
 
-  const dict = language === "fr" ? fr.home.stack : en.home.stack;
-
   return (
-    <section
-      className="stack"
-      aria-label={
-        language === "fr"
-          ? "section stack technologique"
-          : "tech stack section"
-      }
-      role="region"
-    >
+    <section className="stack" aria-label={dict.sectionAria} role="region">
       <h2>{dict.sectionTitle}</h2>
 
       <div className="stack-grid">
