@@ -24,7 +24,6 @@ section::after {
   background: linear-gradient(to right, transparent 0%, rgba(51, 51, 51, 0.8) 20%, rgba(51, 51, 51, 0.8) 80%, transparent 100%);
 }
 
-/* dernière section : pas de ligne ni de marge */
 section:last-of-type {
   margin-bottom: 0;
 }
@@ -34,6 +33,7 @@ section:last-of-type::after {
 }
 
 /***************************************************/
+
 
 /* section présentation */
 .hero, 
@@ -145,8 +145,12 @@ section:last-of-type::after {
 
 /***************************************************/
 
+
 /* titre des sections */
-.about h2, .featured-projects h2 {
+.about h2,
+.featured-projects h2,
+.stack h2,
+.work h2 {
   margin-bottom: 30px;
   font-size: 24px;
   color: #8a8a8a;
@@ -167,6 +171,7 @@ section:last-of-type::after {
 }
 
 /***************************************************/
+
 
 /* section projets */
 .featured-projects {
@@ -203,7 +208,7 @@ section:last-of-type::after {
 
 /* année de réalisation d'un projet */
 .project-year {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #8a8a8a;
 }
 
@@ -223,19 +228,12 @@ section:last-of-type::after {
 
 /***************************************************/
 
-/* responsive pour le grid */
-@media (max-width: 1024px) {
-  /* plus de stack ici, déplacé dans Stack.css */
-}
 
+/* responsive tablette */
 @media (max-width: 700px) {
 
   .home-container {
     padding: 60px 0 0 0;
-  }
-
-  .featured-projects h2 {
-    font-size: 21px;
   }
 
   .hero h1 {
@@ -250,7 +248,10 @@ section:last-of-type::after {
     font-size: 11px;
   }
 
-  .about h2, .featured-projects h2 {
+  .about h2,
+  .featured-projects h2,
+  .stack h2,
+  .work h2 {
     text-align: center;
   }
 
@@ -283,6 +284,8 @@ section:last-of-type::after {
 
 /***************************************************/
 
+
+/* responsive mobile */
 @media (max-width: 400px) {
 
   .project-item {
@@ -297,7 +300,7 @@ section:last-of-type::after {
 
   .project-year {
     display: block;
-    font-size: 12px;
+    font-size: 13px;
     color: #8a8a8a;
   }
 

@@ -1,16 +1,3 @@
-/* section stack */
-.stack {
-  padding-bottom: 70px;
-  margin-bottom: 50px;
-}
-
-/* titre de la section */
-.stack h2 {
-  margin-bottom: 40px;
-  font-size: 24px;
-  color: #8a8a8a;
-}
-
 /* grille des technologies */
 .stack-grid {
   display: grid;
@@ -104,13 +91,13 @@
 /***************************************************/
 
 
-/* responsive 1000px */
+/* responsive tablette */
 @media (max-width: 1000px) {
 
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
-    padding: 0 80px;
+    padding: 0 60px;
   }
 
   .stack-item {
@@ -121,16 +108,17 @@
 /***************************************************/
 
 
-/* responsive 600px */
+/* responsive mobile */
 @media (max-width: 600px) {
 
   .stack h2 {
     text-align: center;
   }
+
   .stack-grid {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding: 0 50px;
+    padding: 0 30px;
   }
 
   .stack-item {
