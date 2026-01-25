@@ -3,13 +3,17 @@ import nodemailer from "nodemailer";
 
 const router = Router();
 
-/* Créer le transporteur Nodemailer */
+/* transporteur Nodemailer avec SMTP SSL*/
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_APP_PASSWORD,
   },
+  connectionTimeout: 20000,
+  greetingTimeout: 20000,
 });
 
 /* route POST pour l’envoi du formulaire de contact */
