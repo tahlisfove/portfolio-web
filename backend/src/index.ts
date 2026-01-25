@@ -7,19 +7,9 @@ import projectsRouter from "./routes/projects";
 import contactRouter from "./routes/contact";
 
 const app = express();
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://portfolio-web-production-586a.up.railway.app",
-];
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  }
-}));
+
+/* middlewares */
+app.use(cors());
 app.use(express.json());
 
 /* limiteur de requêtes pour le formulaire contact */
