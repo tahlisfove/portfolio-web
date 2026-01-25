@@ -1,20 +1,7 @@
 import { Router } from "express";
-import nodemailer from "nodemailer";
+import emailjs from "emailjs-com";
 
 const router = Router();
-
-/* transporteur Nodemailer avec SMTP SSL*/
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.sendinblue.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.SENDINBLUE_USER,
-    pass: process.env.SENDINBLUE_API_KEY,
-  },
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-});
 
 /* route POST pour l’envoi du formulaire de contact */
 router.post("/", async (req, res) => {
@@ -36,48 +23,29 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "Le message ne peut pas dépasser 2000 caractères." });
   }
 
-  /* récupération de l'email destinataire */
-  const CONTACT_RECEIVER = process.env.CONTACT_RECEIVER;
-  const SENDINBLUE_USER = process.env.SENDINBLUE_USER;
+  /* récupération des IDs EmailJS depuis les variables d'environnement */
+  const SERVICE_ID = process.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = process.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.VITE_EMAILJS_PUBLIC_KEY;
 
-  if (!CONTACT_RECEIVER || !SENDINBLUE_USER) {
+  if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     return res.status(500).json({ error: "Erreur configuration serveur" });
   }
 
   try {
-    /* envoi du mail */
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${SENDINBLUE_USER}>`,
-      to: CONTACT_RECEIVER,
-      replyTo: email,
-      subject: `[Portfolio Contact] ${subject}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2 style="margin-top: 0;">Nouveau message</h2>
-
-          <div style="margin-top: 30px; padding: 15px; background: #f7f7f7; border-radius: 8px;">
-            <p><strong>Nom :</strong> ${name}</p>
-            <p><strong>Email :</strong> ${email}</p>
-            <p><strong>Téléphone :</strong> ${phone}</p>
-            <p><strong>Sujet :</strong> ${subject}</p>
-          </div>
-
-          <h3 style="margin-top: 20px;">Message :</h3>
-          <p style="line-height: 1.6;">
-            ${message}
-          </p>
-
-          <hr style="margin-top: 30px;">
-          <p style="font-size: 12px; color: #999;">
-            Email envoyé automatiquement depuis mon portfolio.
-          </p>
-        </div>
-      `,
-    });
+    /* envoi du mail via EmailJS */
+    await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+      name,
+      email,
+      phone: phone || "Non renseigné",
+      subject,
+      message,
+      time: new Date().toLocaleString("fr-FR")
+    }, PUBLIC_KEY);
 
     res.json({ success: true });
   } catch (err: any) {
-    console.error("Erreur Nodemailer:", err);
+    console.error("Erreur EmailJS:", err);
     res.status(500).json({ error: "Erreur lors de l'envoi du mail" });
   }
 });

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import { useLanguage } from "../context/LanguageContext"
+import emailjs from '@emailjs/browser';
 
 const MAX_MESSAGE_LENGTH = 2000
 
@@ -60,8 +61,10 @@ const ContactForm: React.FC = () => {
     setErrors([...new Set(newErrors)])
   }, [name, email, phone, subject, message, submitted, t])
 
-  /* backend contact */
-  const API_URL: string = (import.meta.env.VITE_API_URL as string) || "http://localhost:5000";
+  /* récupération des IDs EmailJS depuis les variables d'environnement */
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
 
   /* gestion du clic sur envoyer */
   const handleSubmit = async (e: React.FormEvent) => {
@@ -88,21 +91,21 @@ const ContactForm: React.FC = () => {
     setErrors([])
     setSuccess(false)
 
-    /* tentative denvoi au serveur */
+    /* tentative d'envoi via EmailJS */
     try {
-      const response = await fetch(`${API_URL}/contact`, {        
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, subject, message }),
-      });
-      const data = await response.json()
-
-      /* si erreur renvoyee par le serveur */
-      if (data.error) {
-        setErrors([t("contact.sendError")])
-        setBtnState("idle")
-        return
-      }
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name,
+          email,
+          phone: phone || "Non renseigné",
+          subject,
+          message,
+          time: new Date().toLocaleString("fr-FR")
+        },
+        PUBLIC_KEY
+      )
 
       /* effet visuel avant affichage du succes */
       setTimeout(() => {
@@ -115,8 +118,9 @@ const ContactForm: React.FC = () => {
         setMessage("")
         setSubmitted(false)
       }, 1500)
-    } catch {
-      /* si probleme serveur */
+    } catch (err) {
+      console.error("Erreur EmailJS:", err)
+      /* si probleme serveur ou EmailJS */
       setErrors([t("contact.sendError")])
       setBtnState("idle")
     }
