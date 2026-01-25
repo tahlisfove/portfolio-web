@@ -1,10 +1,16 @@
 import { Router } from "express";
-import sgMail from "@sendgrid/mail";
+import nodemailer from "nodemailer";
 
 const router = Router();
 
-/* configuration de SendGrid avec la clé API */
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+/* Créer le transporteur Nodemailer */
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
+  },
+});
 
 /* route POST pour l’envoi du formulaire de contact */
 router.post("/", async (req, res) => {
@@ -26,16 +32,19 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "Le message ne peut pas dépasser 2000 caractères." });
   }
 
-  /* récupération de l'email destinataire et expéditeur */
+  /* récupération de l'email destinataire */
   const CONTACT_RECEIVER = process.env.CONTACT_RECEIVER;
-  const CONTACT_SENDER = process.env.CONTACT_SENDER;
-  if (!CONTACT_RECEIVER || !CONTACT_SENDER) return res.status(500).json({ error: "Erreur configuration serveur" });
+  const GMAIL_USER = process.env.GMAIL_USER;
+
+  if (!CONTACT_RECEIVER || !GMAIL_USER) {
+    return res.status(500).json({ error: "Erreur configuration serveur" });
+  }
 
   try {
     /* envoi du mail */
-    await sgMail.send({
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${GMAIL_USER}>`,
       to: CONTACT_RECEIVER,
-      from: `Portfolio Contact <${CONTACT_SENDER}>`,
       replyTo: email,
       subject: `[Portfolio Contact] ${subject}`,
       html: `
@@ -63,8 +72,8 @@ router.post("/", async (req, res) => {
     });
 
     res.json({ success: true });
-  } catch (err) {
-    console.error("Erreur SendGrid:", err);
+  } catch (err: any) {
+    console.error("Erreur Nodemailer:", err);
     res.status(500).json({ error: "Erreur lors de l'envoi du mail" });
   }
 });
