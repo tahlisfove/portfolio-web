@@ -170,7 +170,7 @@ const ContactForm: React.FC = () => {
         type="text"
         placeholder={t("contact.subject")}
         value={subject}
-        onChange={(e) => setSubject(e.target.value.slice(0, 40))}
+        onChange={(e) => setSubject(e.target.value.slice(0, 70))}
         className={hasError("subject") ? "error-input" : ""}
         aria-label={t("contact.subject")}
         aria-required="true"
