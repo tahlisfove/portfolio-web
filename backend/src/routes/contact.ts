@@ -5,12 +5,12 @@ const router = Router();
 
 /* transporteur Nodemailer avec SMTP SSL*/
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp-relay.sendinblue.com",
   port: 465,
   secure: true,
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_APP_PASSWORD,
+    user: process.env.SENDINBLUE_USER,
+    pass: process.env.SENDINBLUE_API_KEY,
   },
   connectionTimeout: 20000,
   greetingTimeout: 20000,
@@ -38,16 +38,16 @@ router.post("/", async (req, res) => {
 
   /* récupération de l'email destinataire */
   const CONTACT_RECEIVER = process.env.CONTACT_RECEIVER;
-  const GMAIL_USER = process.env.GMAIL_USER;
+  const SENDINBLUE_USER = process.env.SENDINBLUE_USER;
 
-  if (!CONTACT_RECEIVER || !GMAIL_USER) {
+  if (!CONTACT_RECEIVER || !SENDINBLUE_USER) {
     return res.status(500).json({ error: "Erreur configuration serveur" });
   }
 
   try {
     /* envoi du mail */
     await transporter.sendMail({
-      from: `"Portfolio Contact" <${GMAIL_USER}>`,
+      from: `"Portfolio Contact" <${SENDINBLUE_USER}>`,
       to: CONTACT_RECEIVER,
       replyTo: email,
       subject: `[Portfolio Contact] ${subject}`,
