@@ -99,7 +99,7 @@ const ContactForm: React.FC = () => {
         {
           name,
           email,
-          phone: phone || "Non renseigné",
+          phone: phone || "",
           subject,
           message,
           time: new Date().toLocaleString("fr-FR")
