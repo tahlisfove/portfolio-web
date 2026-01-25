@@ -12,6 +12,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/* trust proxy pour production */
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
+
 /* limiteur de requêtes pour le formulaire contact */
 const contactLimiter = rateLimit({
   windowMs: 10 * 60 * 1000,
@@ -41,7 +46,6 @@ app.get("/", (_req, res) => {
     }
   });
 });
-
 
 /* démarrage du serveur */
 const PORT = process.env.PORT || 5000;
